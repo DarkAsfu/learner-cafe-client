@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+    const user = 'true';
     return (
         <div className="bg-[#fff] shadow-sm">
             <header>
@@ -29,7 +30,7 @@ const NavBar = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/contact' className="group relative before:absolute before:inset-x-0 before:top-6 before:h-1 before:origin-right before:scale-x-0 before:bg-[#ffc107] before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100">
+                                                <Link to='/lecture' className="group relative before:absolute before:inset-x-0 before:top-6 before:h-1 before:origin-right before:scale-x-0 before:bg-[#ffc107] before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100">
                                                     <span className="relative " >Lecture</span>
                                                 </Link>
                                             </li>
@@ -44,7 +45,9 @@ const NavBar = () => {
                                                 </Link>
                                             </li>
                                         </ul>
-                                        <div className="dropdown px-6 -mt-28 md:mt-0">
+                                        {
+                                            user &&
+                                            <div className="dropdown px-6 -mt-28 md:mt-0">
                                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                 <div className="w-10 rounded-full">
                                                     <img src="https://lh3.googleusercontent.com/ogw/AGvuzYZ70pWZFjVSUBhXerM6Ihot_dgkoKtcB-CHXziflw=s32-c-mo" />
@@ -61,8 +64,9 @@ const NavBar = () => {
                                                 <li><a>Logout</a></li>
                                             </ul>
                                         </div>
+                                        }
                                         <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:border-l lg:py-0 lg:pr-0 lg:pl-6">
-                                            <Link to="/login" className="block px-6 py-3 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-center text-white">
+                                            <Link to="/signin" className="block px-6 py-3 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-center text-white">
                                                 Sign In
                                             </Link>
                                         </div>
