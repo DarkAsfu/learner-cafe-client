@@ -1,7 +1,13 @@
 import "@lottiefiles/lottie-player";
 import { Link } from "react-router-dom";
-import google from '../../../../public/google (1).png'
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import Social from "../../Shared/Social/Social";
 const Signup = () => {
+    const {user, createUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+    console.log(user, createUser);
     const handleRegister = (e) =>{
         e.preventDefault();
         const form = e.target;
@@ -9,6 +15,19 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log({name, email, password});
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            form.reset();
+            setSuccess('Succesfully registered please login')
+            setError('')
+        })
+        .catch(error => {
+            console.log(error.message);
+            setError(error.message)
+            setSuccess('')
+        })
     }
     return (
         <div className="w-10/12 mx-auto text-center flex justify-center my-10">
@@ -60,11 +79,9 @@ const Signup = () => {
                     </div>
                     </form>
                     <div className="divider">Or Sign In with </div>
-                    <div className="flex justify-center gap-4 align-middle items-center">
-                        <img className="w-10" src={google} alt="" />
-                        <img className="w-10" src="https://i.ibb.co/5vKgQps/github-1.png" alt="" />
-                        <img className="w-10" src="https://i.ibb.co/jkgHFDR/facebook-1.png" alt="" />
-                    </div>
+                    <Social></Social>
+                    <p className="text-green-600">{success}</p>
+                    <p className="text-red-500">{error}</p>
                 </div>
             </div>
         </div>

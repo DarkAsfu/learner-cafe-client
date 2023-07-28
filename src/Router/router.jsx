@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Link, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../components/Pages/Home/Home";
 import Signin from "../components/Pages/Signin/Signin";
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '*',
+        element: <h1 className="flex justify-center align-middle mt-48">404 page not found back to <Link className="text-blue-600" to='/'>Home</Link></h1>
+    }
 ]);
 
 export default router

@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const NavBar = () => {
-    const user = 'true';
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
     return (
         <div className="bg-[#fff] shadow-sm">
             <header>
@@ -16,7 +27,7 @@ const NavBar = () => {
 
                             <div className="flex items-center justify-end border-l lg:border-l-0 ">
                                 <input type="checkbox" name="hamburger" id="hamburger" className="peer" hidden />
-                                <label for="hamburger" className="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden ">
+                                <label htmlFor="hamburger" className="peer-checked:hamburger block relative z-20 p-6 -mr-6 cursor-pointer lg:hidden ">
                                     <div aria-hidden="true" className="m-auto h-0.5 w-6 rounded bg-[#ffc107] transition duration-300"></div>
                                     <div aria-hidden="true" className="m-auto mt-2 h-0.5 w-6 rounded bg-[#ffc107] transition duration-300"></div>
                                 </label>
@@ -48,22 +59,24 @@ const NavBar = () => {
                                         {
                                             user &&
                                             <div className="dropdown px-6 -mt-28 md:mt-0">
-                                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                                <div className="w-10 rounded-full">
-                                                    <img src="https://lh3.googleusercontent.com/ogw/AGvuzYZ70pWZFjVSUBhXerM6Ihot_dgkoKtcB-CHXziflw=s32-c-mo" />
-                                                </div>
-                                            </label>
-                                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                                <li>
-                                                    <a className="justify-between">
-                                                        Profile
-                                                        <span className="badge">New</span>
-                                                    </a>
-                                                </li>
-                                                <li><a>Dashboard</a></li>
-                                                <li><a>Logout</a></li>
-                                            </ul>
-                                        </div>
+                                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                                    <div className="w-10 rounded-full">
+                                                        {
+                                                            user.photoURL ? <img src={user.photoURL} /> : <img src="https://i.ibb.co/2qr381T/user-1.png"></img>
+                                                        }
+                                                    </div>
+                                                </label>
+                                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                                    <li>
+                                                        <a className="justify-between">
+                                                            Profile
+                                                            <span className="badge">New</span>
+                                                        </a>
+                                                    </li>
+                                                    <li><a>Dashboard</a></li>
+                                                    <li><button onClick={handleLogOut}>Log Out</button></li>
+                                                </ul>
+                                            </div>
                                         }
                                         <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:border-l lg:py-0 lg:pr-0 lg:pl-6">
                                             <Link to="/signin" className="block px-6 py-3 rounded-full bg-gradient-to-r from-yellow-600 to-yellow-400 text-center text-white">
