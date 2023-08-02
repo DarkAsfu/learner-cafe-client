@@ -4,7 +4,11 @@ import Home from "../components/Pages/Home/Home";
 import Signin from "../components/Pages/Signin/Signin";
 import Signup from "../components/Pages/Signup/Signup";
 import Lecture from "../components/Pages/Lecture/Lecture";
-
+import Dashboard from "../Layout/Dashboard";
+import PrivateRouter from "./privateRouter";
+import AllUsers from "../components/Dashboard/Admin/AllUsers";
+import MyLecture from "../components/Dashboard/User/MyLecture";
+const isAdmin = 1;
 const router = createBrowserRouter([
     {
         path: "/",
@@ -25,6 +29,25 @@ const router = createBrowserRouter([
             {
                 path: '/lecture',
                 element: <Lecture></Lecture>
+            }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRouter><Dashboard></Dashboard></PrivateRouter>,
+        children: [
+            {
+                path: '/dashboard',
+                element: isAdmin ? <h1> Dashboard Home </h1> : <h1>Dashboard Home j</h1>
+            },
+            {
+                path: 'allusers',
+                element: <AllUsers></AllUsers> 
+            },
+            // user
+            {
+                path: 'mylecture',
+                element: <MyLecture></MyLecture>
             }
         ]
     },

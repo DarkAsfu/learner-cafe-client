@@ -1,5 +1,5 @@
 import "@lottiefiles/lottie-player";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Social from "../../Shared/Social/Social";
@@ -7,6 +7,9 @@ const Signup = () => {
     const {user, createUser} = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/"
     console.log(user, createUser);
     const handleRegister = (e) =>{
         e.preventDefault();
@@ -19,6 +22,18 @@ const Signup = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            const saveUser = {name, email: loggedUser.email, image: loggedUser.photoURL};
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
+            })
+            .then(res => res.json())
+            .then(() => {
+                navigate(from, { replace: true });
+            })
             form.reset();
             setSuccess('Succesfully registered please login')
             setError('')
