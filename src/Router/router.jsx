@@ -8,7 +8,9 @@ import Dashboard from "../Layout/Dashboard";
 import PrivateRouter from "./privateRouter";
 import AllUsers from "../components/Dashboard/Admin/AllUsers";
 import MyLecture from "../components/Dashboard/User/MyLecture";
-const isAdmin = 1;
+import DashboardHome from "../components/Dashboard/DashboardHome/DashboardHome";
+import AdminRoute from "./AdminRoute";
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -38,11 +40,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: isAdmin ? <h1> Dashboard Home </h1> : <h1>Dashboard Home j</h1>
+                element: <DashboardHome/>
             },
             {
                 path: 'allusers',
-                element: <AllUsers></AllUsers> 
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             // user
             {
