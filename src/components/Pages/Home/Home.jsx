@@ -1,9 +1,9 @@
-import Banner from "./Banner";
+import Banner from "./Banner/Banner";
 
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            <Banner/>
         </div>
     );
 };
