@@ -45,7 +45,7 @@ const Signup = () => {
         })
     }
     return (
-        <div className="w-10/12 mx-auto text-center flex justify-center my-10">
+        <div className="w-10/12 mx-auto text-center flex justify-center mb-10">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                 <div className="card-body">
                     <div className="text-center mx-auto border border-[#ffc107] rounded-full">
