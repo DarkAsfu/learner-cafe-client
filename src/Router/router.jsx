@@ -10,6 +10,7 @@ import AllUsers from "../components/Dashboard/Admin/AllUsers";
 import MyLecture from "../components/Dashboard/User/MyLecture";
 import DashboardHome from "../components/Dashboard/DashboardHome/DashboardHome";
 import AdminRoute from "./AdminRoute";
+import Upload from "../components/Pages/Upload/Upload";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
             {
                 path: '/lecture',
                 element: <Lecture></Lecture>
+            },
+            {
+                path: '/upload',
+                element: <Upload/>
             }
         ]
     },
