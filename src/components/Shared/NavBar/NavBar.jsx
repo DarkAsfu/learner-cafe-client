@@ -17,7 +17,7 @@ const NavBar = () => {
         <div className="bg-[#09212E] shadow-sm fixed top-0 left-0 right-0 z-10">
             <header>
                 <div className="relative z-20 md:w-11/12 mx-auto">
-                    <div className="px-6 md:px-12 lg:container lg:mx-auto lg:px-6 lg:py-1">
+                    <div className="py-1 px-6 md:px-0">
                         <div className="flex items-center justify-between">
                             <div className="relative z-20">
                                 <Link to="/">
