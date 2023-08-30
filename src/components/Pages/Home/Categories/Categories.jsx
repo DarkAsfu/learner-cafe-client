@@ -16,7 +16,7 @@ const Categories = () => {
         },
         {
             id: 3,
-            name: "Lab Repprt",
+            name: "Lab Report",
             icon: "https://i.ibb.co/7YMfZMf/lab.png",
             path: "/labreport"
         },
@@ -32,7 +32,7 @@ const Categories = () => {
         <div className="bg-[#09212E] py-14">
             <div className="w-11/12 mx-auto">
             <h1 className="text-[28px] text-white font-sans  uppercase font-bold"><span className="text-[#FFBE30]">all</span>Categories</h1>
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 {
                     categories.map(category => <Category key={category.id} category={category}/>)
                 }
