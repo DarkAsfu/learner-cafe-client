@@ -1,13 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const UploadForm = () => {
     const { user } = useContext(AuthContext)
     const handlesubmit = (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
         const subname = form.subname.value;
         const subcode = form.subcode.value;
         const drivelink = form.drivelink.value;
@@ -18,8 +17,8 @@ const UploadForm = () => {
         const today = new Date();
         const date = today.toLocaleDateString("en-US", options)
         const document = {
-            name,
-            email,
+            name: user.displayName,
+            email: user?.email,
             subName: subname,
             subCode: subcode,
             driveLink: drivelink,
@@ -29,28 +28,31 @@ const UploadForm = () => {
             date
         }
         console.log(document);
-        // alert('success')
-        form.reset();
+        fetch('http://localhost:5000/lectures', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(document)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire(
+                    'Thank you!',
+                    'Your document is now added',
+                    'success'
+                  )
+                  form.reset();
+            }
+        })
     }
     return (
         <div className="bg-[url(https://i.ibb.co/2Ynjqcq/announce-bg-b41ffe75.png)] bg-contain bg-no-repeat bg-[#ffffff] py-20 ">
             <div className="md:w-8/12 lg:w-6/12 md:mx-auto py-10 bg-white md:px-10 px-6 shadow-md rounded-md mx-3">
                 <h1 className="text-[#FFBE30] text-2xl font-bold">Upload Your Lecture</h1>
                 <form onSubmit={handlesubmit}>
-                    <div className="md:flex gap-4">
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text capitalize font-mono font-bold text-[16px]">your name</span>
-                            </label>
-                            <input defaultValue={user?.displayName} readOnly name="name" type="text"  className="input input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text capitalize font-mono font-bold text-[16px]">Your email</span>
-                            </label>
-                            <input defaultValue={user?.email} readOnly name="email" type="text" className="input input-bordered w-full" />
-                        </div>
-                    </div>
                     <div className="md:flex gap-4">
                         <div className="form-control w-full">
                             <label className="label">
