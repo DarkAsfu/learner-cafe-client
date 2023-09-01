@@ -1,4 +1,5 @@
 import { FaBookmark, FaDownload, FaShare } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Card = ({lecture}) => {
     console.log(lecture);
     //https://i.ibb.co/f4mCKRv/cse.png
@@ -27,7 +28,7 @@ const Card = ({lecture}) => {
             <p className="text-[#09212E] font-mono text-[14px] font-bold mb-4">{lecture?.date}</p>
             <div className="flex gap-3 text-[18px] text-[#09212E]">
                 <FaBookmark></FaBookmark>
-                <FaDownload></FaDownload>
+                <Link target="_blank" to={lecture?.driveLink}><FaDownload></FaDownload></Link>
                 <FaShare></FaShare>
             </div>
             </div>

@@ -8,7 +8,7 @@ const LatestLecture = () => {
         <div>
             <div className="w-11/12 mx-auto py-14">
             <div className="">
-            <h1 className="text-[28px] text-[#09212E] font-mono uppercase font-semibold"><span className="text-[#FFBE30]">Latest</span>Lecture</h1>
+            <h1 className="text-[28px] text-[#09212E] font-mono uppercase font-semibold"><span className="text-[#FFBE30]">Latest</span>Documents</h1>
             <div className="divider"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">
