@@ -27,7 +27,6 @@ const Categories = () => {
             path: "/presentation"
         },
     ]
-    console.log(categories);
     return (
         <div className="bg-[#09212E] py-14">
             <div className="w-11/12 mx-auto">
