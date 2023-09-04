@@ -10,7 +10,7 @@ const AllUsers = () => {
                 {
                     users.map(user => (
                         <div key={user._id} className="relative bg-white py-6 px-6 rounded-3xl md:w-64 my-4 shadow-xl">
-                            <div className=" text-white flex items-center absolute rounded-full p-1 shadow-xl bg-[#FFBE30] left-4 -top-6">
+                            <div className=" text-white flex items-center absolute rounded-full p-1 shadow-xl bg-[#fff] left-4 -top-6">
                                 <img className="w-14 rounded-full" src={user?.image ? user?.image : "https://i.ibb.co/2qr381T/user-1.png"} alt="" />
                             </div>
                             <div className="mt-8">

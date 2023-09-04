@@ -27,10 +27,10 @@ https://i.ibb.co/kH8XvFm/home.png
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-6 w-80 h-full bg-[#09212E] space-y-6">
                     {/* Sidebar content here */}
-                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#FFBE30] hover:text-white" to="/dashboard"><img className="w-10" src="https://i.ibb.co/kH8XvFm/home.png" alt="Home" />Home</Link></li>
-                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#FFBE30] hover:text-white" to="allusers"><img className="w-10"  src="https://i.ibb.co/GW0p1hz/office.png" alt="" />All Users</Link></li>
-                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#FFBE30] hover:text-white" to="/"><img className="w-10" src="https://i.ibb.co/wNL2xfZ/sheet.png" alt="" />Lecture</Link></li>
-                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#FFBE30] hover:text-white" to="/"><img className="w-10" src="https://i.ibb.co/7VYmTxb/slides-1.png" alt="" />Slides</Link></li>
+                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="/dashboard"><img className="w-10" src="https://i.ibb.co/kH8XvFm/home.png" alt="Home" />Home</Link></li>
+                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="allusers"><img className="w-10"  src="https://i.ibb.co/GW0p1hz/office.png" alt="" />All Users</Link></li>
+                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="/"><img className="w-10" src="https://i.ibb.co/wNL2xfZ/sheet.png" alt="" />Lecture</Link></li>
+                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="/"><img className="w-10" src="https://i.ibb.co/7VYmTxb/slides-1.png" alt="" />Slides</Link></li>
                 </ul>
             </div>
         </div>

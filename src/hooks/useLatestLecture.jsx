@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const useLatestLecture = () => {
     const [loading, setLoading] = useState(true)
-    const {data: lectures = [], refetch} = useQuery({
+    const {data: alllectures = [], refetch} = useQuery({
         queryKey: ['lectures'],
         queryFn: async() => {
             const res = await fetch('http://localhost:5000/lectures');
@@ -12,7 +12,7 @@ const useLatestLecture = () => {
             return res.json();
         }
     })
-    return [lectures, loading, refetch]
+    return [alllectures, loading, refetch]
 };
 
 export default useLatestLecture;
