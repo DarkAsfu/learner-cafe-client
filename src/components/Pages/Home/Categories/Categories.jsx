@@ -34,16 +34,21 @@ const Categories = () => {
         }
     ]
     return (
-        <div className="bg-[#09212E] py-14">
-            <div className="w-11/12 mx-auto">
-            <h1 className="text-[28px] text-white font-sans  uppercase font-bold"><span className="text-[#FFBE30]">all</span>Categories</h1>
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-10">
-                {
-                    categories.map(category => <Category key={category.id} category={category}/>)
-                }
+        <>
+            <div className="bg-[#F2F2F2] pt-20 pb-10">
+                <div className="w-11/12 mx-auto">
+                    <h1 className="text-[28px] text-[#0D0D0D] font-sans  uppercase font-bold"><span className="text-[#D9042B]">all</span>Categories</h1>
+                    <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-10">
+                        {
+                            categories.map(category => <Category key={category.id} category={category} />)
+                        }
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path className="fill-[#F2F2F2]" d="M738,99l262-93V0H0v5.6L738,99z"></path>
+            </svg>
+        </>
     );
 };
 

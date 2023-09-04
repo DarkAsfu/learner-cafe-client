@@ -26,7 +26,7 @@ const Card = ({document}) => {
             <div className="divider"></div>
             <div className="flex justify-between px-2">
             <p className="text-[#09212E] font-mono text-[14px] font-bold mb-4">{document?.date}</p>
-            <div className="flex gap-3 text-[18px] text-[#09212E]">
+            <div className="flex gap-3 text-[18px] text-[#D9042B]">
                 <FaBookmark></FaBookmark>
                 <Link target="_blank" to={document?.driveLink}><FaDownload></FaDownload></Link>
                 <FaShare></FaShare>

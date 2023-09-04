@@ -3,7 +3,6 @@ import Main from "../Layout/Main";
 import Home from "../components/Pages/Home/Home";
 import Signin from "../components/Pages/Signin/Signin";
 import Signup from "../components/Pages/Signup/Signup";
-import Lecture from "../components/Pages/Lecture/Lecture";
 import Dashboard from "../Layout/Dashboard";
 import PrivateRouter from "./privateRouter";
 import AllUsers from "../components/Dashboard/Admin/AllUsers";
@@ -11,6 +10,7 @@ import MyLecture from "../components/Dashboard/User/MyLecture";
 import DashboardHome from "../components/Dashboard/DashboardHome/DashboardHome";
 import AdminRoute from "./AdminRoute";
 import Upload from "../components/Pages/Upload/Upload";
+import Explore from "../components/Pages/Explore/Explore";
 
 const router = createBrowserRouter([
     {
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
                 element: <Signup></Signup>
             },
             {
-                path: '/lecture',
-                element: <Lecture></Lecture>
+                path: '/explore',
+                element: <Explore></Explore>
             },
             {
                 path: '/upload',

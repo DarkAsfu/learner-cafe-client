@@ -49,9 +49,9 @@ const UploadForm = () => {
         })
     }
     return (
-        <div className="bg-[url(https://i.ibb.co/2Ynjqcq/announce-bg-b41ffe75.png)] bg-contain bg-no-repeat bg-[#ffffff] py-20 ">
-            <div className="md:w-8/12 lg:w-6/12 md:mx-auto py-10 bg-white md:px-10 px-6 shadow-md rounded-md mx-3">
-                <h1 className="text-[#FFBE30] text-2xl font-bold">Upload Your Lecture</h1>
+        <div className="bg-[url(https://i.ibb.co/syp2dX5/explore.jpg)] bg-cover bg-fixed bg-no-repeat bg-[#ffffff] py-20 ">
+            <div className="md:w-8/12 lg:w-6/12 md:mx-auto py-10 my-20 bg-white md:px-10 px-6 shadow-md rounded-md mx-3">
+                <h1 className="text-[#D9042B] text-2xl font-bold">Upload Your Lecture</h1>
                 <form onSubmit={handlesubmit}>
                     <div className="md:flex gap-4">
                         <div className="form-control w-full">
@@ -102,7 +102,7 @@ const UploadForm = () => {
                         <textarea placeholder="Write about your topic" className="textarea textarea-bordered textarea-md w-full" name="description" ></textarea>
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn mt-4 bg-[#09212E] text-[#FFBE30] hover:bg-[#FFBE30] hover:text-[#09212E] w-full capitalize" type="submit" value="Add Your lecture" />
+                        <input className="btn mt-4 bg-[#09212E] text-[#fff] hover:bg-[#D9042B] hover:text-[#fff] w-full capitalize" type="submit" value="Add Your lecture" />
                     </div>
                 </form>
             </div>

@@ -1,7 +1,10 @@
-.banner{
-    background-image: url(https://i.ibb.co/tJKLWNz/banner-home.webp);
-    height: 550px;
+.banner {
+    background-image: url(https://i.ibb.co/Jvys01Y/banner.png);
+    height: 650px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+svg{
+    transform: translateX(0%) rotateY(180deg);
 }
