@@ -1,3 +1,4 @@
+import MyLecture from "../../Dashboard/User/MyLecture";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
 import LabreportCategory from "./LabreportCategory/LabreportCategory";
@@ -14,6 +15,7 @@ const Home = () => {
             <LectureCategory/>
             <PresentationCategory/>
             <LabreportCategory/>
+            <MyLecture/>
         </div>
     );
 };

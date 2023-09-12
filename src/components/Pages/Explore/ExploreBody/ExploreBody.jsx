@@ -14,7 +14,7 @@ const ExploreBody = () => {
     // const [labreport] = useLabReport();
     // const [slide] = useSlide();
     const [alllectures, loading, refetch] = useLatestLecture();
-    console.log(alllectures);
+    // console.log(alllectures);
     const [alllecture, setAllLectures] = useState([])
     refetch()
     const handleSearch = (e) => {

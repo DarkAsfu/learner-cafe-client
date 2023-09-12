@@ -1,27 +1,42 @@
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
+
 
 const User = () => {
+    const { user } = useContext(AuthContext);
     return (
-        <div className="drawer lg:drawer-open">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col">
-            {/* Page content here */}
-            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-            <Outlet></Outlet>
+        <div className="lg:drawer lg:drawer-open bg-[#0E0F13]">
+            <input id="hamburger" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
+                <div className="text-right flex justify-end">
+                    <label htmlFor="hamburger" className="peer-checked:hamburger block relative z-20 p-6  cursor-pointer lg:hidden ">
+                        <div aria-hidden="true" className="h-0.5 w-6 rounded bg-[#D9042B] transition duration-300"></div>
+                        <div aria-hidden="true" className=" mt-2 h-0.5 w-6 rounded bg-[#D9042B] transition duration-300"></div>
+                    </label>
+                </div>
+                <Outlet></Outlet>
+            </div>
+            <div className="drawer-side">
+                <label htmlFor="hamburger" className="drawer-overlay"></label>
+                <ul className="w-80 h-full bg-[#17181C] text-base-content">
+                    {/* Sidebar content here */}
+                    <div className="flex items-center justify-around bg-white py-3 border-b-2 border-green-200">
+                        <Link to="/">
+                            <h1 className="text-[#0D0D0D] text-2xl font-bold uppercase font-mono"><span className="text-[#D9042B]">GUB</span>Material</h1>
+                        </Link>
+                        {
+                            user?.photoURL ? <img className="w-12 rounded-2xl" src={user?.photoURL}></img> : <img className="w-10" src="https://i.ibb.co/2qr381T/user-1.png"></img>
+                        }
 
+                    </div>
+                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/dashboard">Home</Link></li>
+                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="mylecture">My Lecture</Link></li>
+                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/">My slide</Link></li>
+                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/upload">Add Product</Link></li>
+                </ul>
+            </div>
         </div>
-        <div className="drawer-side">
-            <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                {/* Sidebar content here */}
-                <li><Link to="/dashboard">Home</Link></li>
-                <li><Link to="mylecture">My Lecture</Link></li>
-                <li><Link to="/">My slide</Link></li>
-                <li><Link to="/">Add Product</Link></li>
-                
-            </ul>
-        </div>
-    </div>
     );
 };
 
