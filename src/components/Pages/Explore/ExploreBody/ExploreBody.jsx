@@ -23,9 +23,8 @@ const ExploreBody = () => {
         const searchText = form.search.value;
         // setSearchvalue(searchText);
         fetch(`http://localhost:5000/documentSearchByTopicName/${searchText}`)
-            .then(res => res.json())
-            .then(data => setAllLectures(data))
-
+        .then(res => res.json())
+        .then(data => setAllLectures(data))
     }
     let lecture;
     if (alllecture.length == 0) {
