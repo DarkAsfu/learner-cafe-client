@@ -1,10 +1,12 @@
 import CountUp, { useCountUp } from 'react-countup';
 import useMyDocument from "../../../hooks/useMyDocument";
 import useLatestLecture from "../../../hooks/useLatestLecture";
+import useBookmarks from '../../../hooks/useBookmarks';
 
 const UserHome = () => {
     const [alllecture] = useLatestLecture();
     const [myDocument] = useMyDocument();
+    const [bookmarks] = useBookmarks();
     console.log(myDocument.length);
     useCountUp({
         ref: 'counter',
@@ -26,7 +28,7 @@ const UserHome = () => {
                     {/* <span className='text-[#e8e8e8] font-bold font-sans text-[60px]'>+</span>*/}</div>
                 <div className="text-center py-10 rounded-2xl bg-[#191C23]">
                     <h1 className='text-[#8C52FF] text-2xl font-bold'>Bookmarks</h1>
-                    <CountUp className='text-[#e8e8e8] font-bold font-sans text-[40px]' end={myDocument?.length} enableScrollSpy />
+                    <CountUp className='text-[#e8e8e8] font-bold font-sans text-[40px]' end={bookmarks?.length} enableScrollSpy />
                 </div>
                 <div className="text-center py-10 rounded-2xl bg-[#191C23]"><h1 className='text-[#8C52FF] text-2xl font-bold'>Bookmarks</h1>
                     <CountUp className='text-[#e8e8e8] font-bold font-sans text-[40px]' end={myDocument?.length} enableScrollSpy /></div>

@@ -12,6 +12,7 @@ import AdminRoute from "./AdminRoute";
 import Upload from "../components/Pages/Upload/Upload";
 import Explore from "../components/Pages/Explore/Explore";
 import UpdateDocument from "../components/Dashboard/User/UpdateDocument";
+import Profile from "../components/Dashboard/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
                 path: 'update/:id',
                 element: <UpdateDocument/>,
                 loader: ({params}) => fetch(`http://localhost:5000/lectures/${params.id}`)
+            },
+            {
+                path: 'profile',
+                element: <Profile/>,
             }
         ]
     },

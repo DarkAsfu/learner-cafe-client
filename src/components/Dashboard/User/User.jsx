@@ -6,7 +6,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const User = () => {
     const { user } = useContext(AuthContext);
     return (
-        <div className="lg:drawer lg:drawer-open bg-[#0E0F13]">
+        <div className="lg:drawer lg:drawer-open bg-[#0E0F13] h-[100vh]">
             <input id="hamburger" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 <div className="text-right flex justify-end">
@@ -30,10 +30,11 @@ const User = () => {
                         }
 
                     </div>
-                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/dashboard">Home</Link></li>
-                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="mylecture">My Lecture</Link></li>
-                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/">My slide</Link></li>
-                    <li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300"><Link to="/upload">Add Product</Link></li>
+                    <Link to="/dashboard"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Home</li></Link>
+                    <Link to="mylecture"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">My Lecture</li></Link>
+                    <Link to="/"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">My slide</li></Link>
+                    <Link to="/upload"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Add Product</li></Link>
+                    <Link to="profile"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Profile</li></Link>
                 </ul>
             </div>
         </div>

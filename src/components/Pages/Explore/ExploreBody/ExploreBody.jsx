@@ -34,9 +34,9 @@ const ExploreBody = () => {
         lecture = alllecture
     }
     return (
-        <div className='bg-[#000] pb-20'>
-            <div className='md:w-10/12 mx-auto px-6 md:px-0' >
-                <Tabs className="md:flex pt-20 ">
+        <div className='bg-[#000]'>
+            <div className=' mx-auto px-6 md:px-0 py-6 md:py-0' >
+                <Tabs className="md:flex">
                     <div className='lg:w-[25%] bg-[#100f0f] text-white md:px-20 md:py-10 text-center px-3'>
                         <TabList className="grid grid-cols-3 md:grid-cols-1 py-2">
                             <Tab className="border-0 mt-3 md:mt-10">All</Tab>

@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-
 const useLecture = () => {
     const [loading, setLoading] = useState(true)
     const {data: lectures = [], refetch} = useQuery({

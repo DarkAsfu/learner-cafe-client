@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { FaBookmark } from "react-icons/fa6";
+import useBookmarks from "../../../hooks/useBookmarks";
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [bookmarks] = useBookmarks();
     // console.log(user);
     const handleLogOut = () => {
         logOut()
@@ -60,6 +63,7 @@ const NavBar = () => {
                                                     Upload
                                                 </Link>
                                             </li>
+
                                         </ul>
                                         {
                                             user &&
@@ -72,21 +76,19 @@ const NavBar = () => {
                                                     </div>
                                                 </label>
                                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                                    <li>
-                                                        <a className="justify-between">
-                                                            Profile
-                                                            <span className="badge">New</span>
-                                                        </a>
-                                                    </li>
                                                     <li><Link to="/dashboard">Dashboard</Link></li>
                                                     <li><button onClick={handleLogOut}>Log Out</button></li>
                                                 </ul>
                                             </div>
                                         }
-                                        <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:py-0 lg:pr-0 lg:pl-6">
-                                            <Link to="/signin" className="block px-4 py-2 rounded bg-[#D9042B] text-white font-bold uppercase">
+                                        <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:py-0 lg:pr-0 lg:pl-6 flex place-items-center gap-3">
+                                            <Link to="/signin" className="block text-[12px] font-bold px-4 py-2 rounded bg-[#D9042B] text-white uppercase">
                                                 Login
                                             </Link>
+                                            <div className="indicator">
+                                                <span className="indicator-item badge text-white bg-[#000]">{bookmarks.length}</span>
+                                                <FaBookmark className="text-[#D9042B] text-[28px]"></FaBookmark>
+                                            </div>
                                         </div>
 
                                     </div>
