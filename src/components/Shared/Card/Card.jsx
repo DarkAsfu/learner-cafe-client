@@ -9,8 +9,8 @@ const Card = ({document}) => {
     const {_id, subName, subCode, topicName, name, date, category, description, driveLink, email} = document
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
-    const [bookmarks, , refetch] = useBookmarks();
-    console.log(bookmarks);
+    const [, , refetch] = useBookmarks();
+    // console.log(bookmarks);
     const setImageCSE = document?.subCode?.toLowerCase()?.includes('cse')
     const setImageEEE = document?.subCode?.toLowerCase()?.includes('eee')
     let img;
@@ -72,10 +72,11 @@ const Card = ({document}) => {
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'login now'
+                confirmButtonText: 'Login now'
               }).then((result) => {
+                console.log(result);
                 if (result.isConfirmed) {
-                  navigate('/signin', {state: {from: location}})
+                  navigate('/signin')
                 }
               })
         }

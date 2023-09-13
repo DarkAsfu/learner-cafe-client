@@ -13,6 +13,7 @@ import Upload from "../components/Pages/Upload/Upload";
 import Explore from "../components/Pages/Explore/Explore";
 import UpdateDocument from "../components/Dashboard/User/UpdateDocument";
 import Profile from "../components/Dashboard/Profile/Profile";
+import Bookmarks from "../components/Pages/Bookmarks/Bookmarks";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/upload',
                 element: <PrivateRouter><Upload/></PrivateRouter>
+            },
+            {
+                path: '/bookmarks',
+                element: <PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>
             }
         ]
     },

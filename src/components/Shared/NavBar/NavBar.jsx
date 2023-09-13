@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="bg-[#fff] shadow-xl fixed top-0 left-0 right-0 z-10">
             <header>
                 <div className="relative z-20 md:w-11/12 mx-auto">
-                    <div className="py-1 px-6 md:px-0">
+                    <div className="py-2 px-6 md:px-0">
                         <div className="flex items-center justify-between">
                             <div className="relative z-20">
                                 <Link to="/">
@@ -37,7 +37,7 @@ const NavBar = () => {
 
                                 <div className="bg-[#fff] peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 ">
                                     <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
-                                        <ul className="pt-32 text-[#0D0D0D] md:pl-14 font-mono font-semibold text-[14px] space-y-8  lg:space-y-0 lg:flex  lg:pt-0 uppercase">
+                                        <ul className="lg:flex items-center pt-32 text-[#0D0D0D] px-5 font-mono font-semibold text-[14px] space-y-4  lg:space-y-0 lg:pt-0 uppercase">
                                             <li>
                                                 <Link to='/' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
                                                     <span className="" >Home</span>
@@ -63,11 +63,10 @@ const NavBar = () => {
                                                     Upload
                                                 </Link>
                                             </li>
-
-                                        </ul>
-                                        {
+                                            {
                                             user &&
-                                            <div className="dropdown px-7 md:px-20 lg:px-2 -mt-16 md:mt-0">
+                                            <div className="grid grid-cols-1 lg:grid-cols-2 px-6">
+                                            <div className="dropdown">
                                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                                     <div className="w-10 rounded-full">
                                                         {
@@ -75,22 +74,37 @@ const NavBar = () => {
                                                         }
                                                     </div>
                                                 </label>
-                                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52">
                                                     <li><Link to="/dashboard">Dashboard</Link></li>
                                                     <li><button onClick={handleLogOut}>Log Out</button></li>
                                                 </ul>
                                             </div>
+                                            <div className="dropdown border rounded-full max-w-max">
+                                                <label tabIndex={0} className="btn btn-ghost btn-circle">
+                                                    <div className="indicator">
+                                                        {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg> */}
+                                                        <FaBookmark className="text-[18px]"></FaBookmark>
+                                                        <span className="badge badge-sm indicator-item">{bookmarks.length}</span>
+                                                    </div>
+                                                </label>
+                                                <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                                                    <div className="card-body">
+                                                        <span className="font-bold text-lg">{bookmarks.length} Document</span>
+                                                        <div className="card-actions">
+                                                            <Link to='/bookmarks'><button className="btn-sm rounded-md btn-primary btn-block">View Bookmarks</button></Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
                                         }
+                                        </ul>
+                                        
                                         <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:py-0 lg:pr-0 lg:pl-6 flex place-items-center gap-3">
-                                            <Link to="/signin" className="block text-[12px] font-bold px-4 py-2 rounded bg-[#D9042B] text-white uppercase">
+                                            <Link to="/signin" className="w-full text-[12px] font-bold px-4 py-2 rounded bg-[#D9042B] text-white uppercase">
                                                 Login
                                             </Link>
-                                            <div className="indicator">
-                                                <span className="indicator-item badge text-white bg-[#000]">{bookmarks.length}</span>
-                                                <FaBookmark className="text-[#D9042B] text-[28px]"></FaBookmark>
-                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
