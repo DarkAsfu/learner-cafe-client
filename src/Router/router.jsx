@@ -11,6 +11,7 @@ import DashboardHome from "../components/Dashboard/DashboardHome/DashboardHome";
 import AdminRoute from "./AdminRoute";
 import Upload from "../components/Pages/Upload/Upload";
 import Explore from "../components/Pages/Explore/Explore";
+import UpdateDocument from "../components/Dashboard/User/UpdateDocument";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
             {
                 path: 'mylecture',
                 element: <MyLecture></MyLecture>
+            },
+            {
+                path: 'update/:id',
+                element: <UpdateDocument/>,
+                loader: ({params}) => fetch(`http://localhost:5000/lectures/${params.id}`)
             }
         ]
     },

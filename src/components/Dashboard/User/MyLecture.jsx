@@ -3,7 +3,7 @@ import useMyDocument from "../../../hooks/useMyDocument";
 import Swal from "sweetalert2";
 const MyLecture = () => {
     const [myDocument, loading, refetch] = useMyDocument();
-    const handleDelete = (id) =>{
+    const handleDelete = (id) => {
         console.log(id);
         Swal.fire({
             title: 'Are you sure?',
@@ -18,18 +18,18 @@ const MyLecture = () => {
                 fetch(`http://localhost:5000/lectures/${id}`, {
                     method: 'DELETE'
                 })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    if (data.deletedCount > 0) {
-                         Swal.fire(
-                            'Deleted!',
-                            'Your Document has been deleted.',
-                            'success'
-                        )
-                        refetch();
-                    }
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Document has been deleted.',
+                                'success'
+                            )
+                            refetch();
+                        }
+                    })
             }
         })
     }
@@ -85,12 +85,12 @@ const MyLecture = () => {
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">
                                                         <div className="text-[18px] text-center">
-                                                            <Link className='text-[14px] text-[#D9042B] bg-[#ffb0b0] font-bold px-3 py-2 rounded-md' to={report?.driveLink}>Download</Link>
+                                                            <Link className='text-[14px] text-[#D9042B] bg-[#ffb0b0] font-bold px-3 py-2 rounded-md' target="_blank" to={report?.driveLink}>Download</Link>
                                                         </div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">
                                                         <div className="flex justify-center text-[16px]  text-black">
-                                                            <img className="w-10" src="https://i.ibb.co/nw4qsX4/edit-file.png" alt="" />
+                                                        <Link to={`/dashboard/update/${report._id}`}><img className="w-10" src="https://i.ibb.co/nw4qsX4/edit-file.png" alt="" /></Link>
                                                         </div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">

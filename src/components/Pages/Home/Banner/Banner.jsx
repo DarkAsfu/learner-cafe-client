@@ -1,5 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 import './Banner.css'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className="banner bg-fixed">
@@ -14,7 +15,7 @@ const Banner = () => {
                 </div>
                 <div className="divider text-white md:w-[350px] w-[150px] bg-white h-2"></div>
                 <p className='text-[#OD0D0D] text-[20.8px]'>Discover an array of documents. Help us amplify learning together.</p>
-                <button className='btn text-[white] bg-[#D9042B] px-14 pt-4 pb-4 mt-10 border-0 hover:bg-transparent hover:text-[#D9042B] hover:bg-[#fff] font-bold'>Explore All Document</button>
+                <Link to="/explore"><button className='btn text-[white] bg-[#D9042B] px-14 pt-4 pb-4 mt-10 border-0 hover:bg-transparent hover:text-[#D9042B] hover:bg-[#fff] font-bold'>Explore All Document</button></Link>
             </div>
             <div className="rotate-180 hidden">
                 <svg className='' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
