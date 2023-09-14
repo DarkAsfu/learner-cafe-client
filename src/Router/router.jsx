@@ -14,6 +14,7 @@ import Explore from "../components/Pages/Explore/Explore";
 import UpdateDocument from "../components/Dashboard/User/UpdateDocument";
 import Profile from "../components/Dashboard/Profile/Profile";
 import Bookmarks from "../components/Pages/Bookmarks/Bookmarks";
+import SubjectWise from "../components/Shared/SubjectWise/SubjectWise";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
             {
                 path: '/bookmarks',
                 element: <PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>
+            },
+            {
+                path: '/subwise/:id',
+                element: <SubjectWise></SubjectWise>,
+                loader: ({params}) => fetch(`http://localhost:5000/documentSearchBySubName/${params.id}`)
             }
         ]
     },

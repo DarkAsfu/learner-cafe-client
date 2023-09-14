@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Autoplay } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const Subjects = () => {
   const subjects = [
@@ -9,41 +10,49 @@ const Subjects = () => {
       id: 1,
       name: 'Algorithm',
       icon: 'https://i.ibb.co/dWyg51f/workflow-6756837.png',
+      path: 'algorithm'
     },
     {
       id: 2,
       name: 'Algorithm Lab',
       icon: 'https://i.ibb.co/t23j3fD/algorithm.png',
+      path: 'algorithm lab'
     },
     {
       id: 3,
       name: 'Microprocessor',
       icon: 'https://i.ibb.co/sbWqDwG/cpu-900618.png',
+      path: 'microprocessor'
     },
     {
       id: 4,
       name: 'Microprocessor Lab',
       icon: 'https://i.ibb.co/vjpbn3b/hardware.png',
+      path: 'microprocessor lab'
     },
     {
       id: 5,
       name: 'Economics',
       icon: 'https://i.ibb.co/BPvjz2m/economics.png',
+      path: 'economics'
     },
     {
       id: 6,
       name: 'E. Devices and Circuits & Pulse Tecq.',
       icon: 'https://i.ibb.co/cCKS84K/heart.png',
+      path: 'pulse'
     },
     {
       id: 7,
       name: 'E. Devices and Circuits & Pulse Tecq. lab',
       icon: 'https://i.ibb.co/MGCXcQ1/electrical.png',
+      path: 'pulse lab'
     },
     {
       id: 8,
       name: 'Computer Architecture',
       icon: 'https://i.ibb.co/pXWycNn/computer-Achitecture.png',
+      path: 'architecture'
     },
   ];
 
@@ -69,10 +78,12 @@ const Subjects = () => {
       >
         {subjects.map((subject) => (
           <SwiperSlide key={subject.id}>
-            <div className='text-center py-10 card bg-[#f2f2f2] h-[150px]'>
+            <Link to={`/subwise/${subject.path}`}>
+            <div className='text-center py-10 card bg-[#f2f2f2] h-[170px]'>
               <img className='w-10 mx-auto' src={subject.icon} alt='' />
               <h1 className='font-semibold mt-2'>{subject.name}</h1>
             </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
