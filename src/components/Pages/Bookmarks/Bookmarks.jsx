@@ -47,15 +47,15 @@ const Bookmarks = () => {
                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                        {
                             bookmarks.map(bookmark => (
-                                <div key={bookmark._id} className="card rounded-md bg-[#3a3a3a] text-primary-content">
+                                <div key={bookmark._id} className="card rounded-md bg-[#D9042B] text-primary-content">
                                     <div className="flex justify-between px-4 py-8">
                                         <div>
-                                        <h2 className="card-title">{bookmark.subName}</h2>
-                                        <p>{bookmark.topicName}</p>
+                                        <h2 className="card-title text-white text-2xl font-bold">{bookmark.subName}</h2>
+                                        <p className="text-white">{bookmark.topicName}</p>
                                         </div>
                                         <div className="card-actions text-[22px]">
-                                            <Link className="bg-black p-2 rounded-md" target="_blank" to={bookmark.driveLink}><FaEye></FaEye></Link>
-                                            <button onClick={() => handleDelete(bookmark._id)} className="bg-black p-2 rounded-md"><FaTrash></FaTrash></button>
+                                            <Link className="bg-white p-2 rounded-md text-[#D9042B]" target="_blank" to={bookmark.driveLink}><FaEye></FaEye></Link>
+                                            <button onClick={() => handleDelete(bookmark._id)} className="p-2 rounded-md bg-white text-[#D9042B]"><FaTrash></FaTrash></button>
                                         </div>
                                     </div>
                                 </div>

@@ -15,6 +15,7 @@ import UpdateDocument from "../components/Dashboard/User/UpdateDocument";
 import Profile from "../components/Dashboard/Profile/Profile";
 import Bookmarks from "../components/Pages/Bookmarks/Bookmarks";
 import SubjectWise from "../components/Shared/SubjectWise/SubjectWise";
+import Books from "../components/Pages/Books/Books";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             {
                 path: '/bookmarks',
                 element: <PrivateRouter><Bookmarks></Bookmarks></PrivateRouter>
+            },
+            {
+                path: '/books',
+                element: <Books/>
             },
             {
                 path: '/subwise/:id',

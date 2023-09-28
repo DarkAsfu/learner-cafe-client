@@ -49,8 +49,8 @@ const NavBar = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/contact' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
-                                                    <span className="relative " >All Slide</span>
+                                                <Link to='/books' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
+                                                    <span className="relative " >Books</span>
                                                 </Link>
                                             </li>
                                             <li>

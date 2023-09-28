@@ -6,21 +6,21 @@ import Swal from "sweetalert2";
 import useBookmarks from "../../../hooks/useBookmarks";
 const Card = ({document}) => {
     // console.log(document);
-    const {_id, subName, subCode, topicName, name, date, category, description, driveLink, email} = document
+    const {_id, subName, subCode, topicName, name, date, category, description, driveLink, email, image} = document
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const [, , refetch] = useBookmarks();
     // console.log(bookmarks);
-    const setImageCSE = document?.subCode?.toLowerCase()?.includes('cse')
-    const setImageEEE = document?.subCode?.toLowerCase()?.includes('eee')
-    let img;
-    if(setImageCSE){
-        img = 'https://i.ibb.co/f4mCKRv/cse.png';
-    }else if (setImageEEE){
-        img= 'https://i.ibb.co/XWSK64r/EEE-Document.png';
-    }else{
-        img = "https://i.ibb.co/qsdkRbH/pexels-pixabay-261579.jpg"
-    }
+    // const setImageCSE = document?.subCode?.toLowerCase()?.includes('cse')
+    // const setImageEEE = document?.subCode?.toLowerCase()?.includes('eee')
+    // let img;
+    // if(setImageCSE){
+    //     img = 'https://i.ibb.co/f4mCKRv/cse.png';
+    // }else if (setImageEEE){
+    //     img= 'https://i.ibb.co/XWSK64r/EEE-Document.png';
+    // }else{
+    //     img = "https://i.ibb.co/qsdkRbH/pexels-pixabay-261579.jpg"
+    // }
     const showToast = () => {
         const Toast = Swal.mixin({
             toast: true,
@@ -44,7 +44,7 @@ const Card = ({document}) => {
     const handleBookmark = () =>{
         // console.log(document);
         if(user && user?.email){
-            const bookmark = {bookmarkId: _id, subName, subCode, topicName, category, description, driveLink, authorName:name, email: user?.email, authorEmail: email};
+            const bookmark = {bookmarkId: _id, subName, image, subCode, topicName, category, description, driveLink, authorName:name, email: user?.email, authorEmail: email};
             console.log(bookmark);
             fetch('http://localhost:5000/bookmarks', {
                 method: 'POST',
@@ -83,7 +83,7 @@ const Card = ({document}) => {
     }
     return (
         <div className="border rounded-md shadow-md bg-[#fff]">
-            <img className="rounded-t-md h-[298px] w-full" src={img} alt="" />
+            <img className="rounded-t-md h-[298px] w-full" src={image} alt="cover img" />
             <div className="px-2 space-y-2">
             <h1 className="text-xl font-bold">{subName}</h1>
             <p className="text-[16px] font-mono font-bold">{topicName}</p>
