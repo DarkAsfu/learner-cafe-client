@@ -21,7 +21,7 @@ const UpdateDocument = () => {
             category,
             description,
         }
-        console.log(updatedDoc);
+
         fetch(`http://localhost:5000/lectures/${document._id}`, {
             method: 'PATCH',
             headers: {

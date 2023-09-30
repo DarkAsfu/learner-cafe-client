@@ -16,6 +16,7 @@ import Profile from "../components/Dashboard/Profile/Profile";
 import Bookmarks from "../components/Pages/Bookmarks/Bookmarks";
 import SubjectWise from "../components/Shared/SubjectWise/SubjectWise";
 import Books from "../components/Pages/Books/Books";
+import UploadBooks from "../components/Dashboard/Admin/UploadBooks";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: 'allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: 'uploadBooks',
+                element: <AdminRoute><UploadBooks/></AdminRoute>
             },
             // user
             {

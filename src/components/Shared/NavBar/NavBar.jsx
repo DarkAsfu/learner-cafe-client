@@ -91,7 +91,7 @@ const NavBar = () => {
                                                     <div className="card-body">
                                                         <span className="font-bold text-lg">{bookmarks.length} Document</span>
                                                         <div className="card-actions">
-                                                            <Link to='/bookmarks'><button className="btn-sm rounded-md btn-primary btn-block">View Bookmarks</button></Link>
+                                                            <Link to='/bookmarks'><button className="btn-sm rounded-md bg-[#000] text-white btn-block">View Bookmarks</button></Link>
                                                         </div>
                                                     </div>
                                                 </div>
