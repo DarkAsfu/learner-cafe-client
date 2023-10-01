@@ -15,7 +15,7 @@ const Books = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
                 {
                     books.map(book => <div key={book._id} className="card border h-[390px]">
-                      <img src={book.image} alt="Shoes" className="h-[300px]" />
+                      <img src={book.image} alt="Shoes" className="h-[300px] rounded-t-xl" />
                     <div className="px-4 pb-2">
                       <h2 className="card-title text-[14px] text-center">{book.bookName}</h2>
                       <div>
