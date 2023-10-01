@@ -39,27 +39,27 @@ const NavBar = () => {
                                     <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
                                         <ul className="lg:flex items-center pt-32 text-[#0D0D0D] px-5 font-mono font-semibold text-[14px] space-y-4  lg:space-y-0 lg:pt-0 uppercase">
                                             <li>
-                                                <Link to='/' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
+                                                <Link to='/' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="" >Home</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/explore' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
+                                                <Link to='/explore' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Explore</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/books' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
+                                                <Link to='/books' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Books</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/contact' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
-                                                    <span className="relative " >Add Lecture</span>
+                                                <Link to='/contact' className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                    <span className="relative " >Contact</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/upload" className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-8 py-3 rounded-md">
+                                                <Link to="/upload" className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     Upload
                                                 </Link>
                                             </li>

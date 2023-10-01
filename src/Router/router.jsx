@@ -17,6 +17,7 @@ import Bookmarks from "../components/Pages/Bookmarks/Bookmarks";
 import SubjectWise from "../components/Shared/SubjectWise/SubjectWise";
 import Books from "../components/Pages/Books/Books";
 import UploadBooks from "../components/Dashboard/Admin/UploadBooks";
+import Contact from "../components/Pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
                 path: '/subwise/:id',
                 element: <SubjectWise></SubjectWise>,
                 loader: ({params}) => fetch(`http://localhost:5000/documentSearchBySubName/${params.id}`)
+            },
+            {
+                path: '/contact',
+                element: <Contact/>
             }
         ]
     },

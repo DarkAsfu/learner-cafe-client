@@ -19,7 +19,7 @@ const SubjectWise = () => {
                     :
                 <div className="flex flex-col justify-center items-center h-[90vh]">
                     <img className="w-48" src="https://i.ibb.co/Jk4XNhD/image-removebg-preview-1.png" alt="" />
-                    <h1 className="text-xl font-semibold font-mono text-[#505050]">No bookmarks added.</h1>
+                    <h1 className="text-xl font-semibold font-mono text-[#505050]">No Document</h1>
                 </div>
             }
         </div>
