@@ -44,7 +44,7 @@ const MyLecture = () => {
                                     <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                         <tr>
                                             <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Author</div>
+                                                <div className="font-semibold text-left">Cover Image</div>
                                             </th>
                                             <th className="p-2 whitespace-nowrap">
                                                 <div className="font-semibold text-left">Subject</div>
@@ -74,7 +74,7 @@ const MyLecture = () => {
                                                 <tr key={report._id}>
                                                     <td className="p-2 whitespace-nowrap">
                                                         <div className="">
-                                                            <div className="font-medium text-gray-800">{report?.name}</div>
+                                                            <img className="h-14" src={report?.image} alt="cover-img" />
                                                         </div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">

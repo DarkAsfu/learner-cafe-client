@@ -47,7 +47,7 @@ const Bookmarks = () => {
                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                        {
                             bookmarks.map(bookmark => (
-                                <div key={bookmark._id} className="card rounded-md bg-[#e2e2e2] text-black">
+                                <div key={bookmark._id} className="card rounded-md border shadow-md text-black">
                                     <img className="h-[298px] rounded-t-md" src={bookmark?.image} alt="img" />
                                     <div className="flex justify-between px-4 py-8">
                                         <div>

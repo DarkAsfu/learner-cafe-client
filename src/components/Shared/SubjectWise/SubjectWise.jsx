@@ -4,10 +4,10 @@ const SubjectWise = () => {
     const subjectwise = useLoaderData();
     console.log(subjectwise);
     return (
-        <div className="md:pt-3 pt-6">
+        <div className="pt-6 md:pt-0">
             {/* Document: {subjectwise.length} */}
             <div className="py-14" style={{ background: 'url(https://i.ibb.co/tJKLWNz/banner-home.webp)' }}>
-                <h1 className="flex justify-center text-white text-4xl font-bold font-mono">{subjectwise[0]?.subName || '404 |not found'}</h1>
+                <h1 className="flex justify-center text-[#ffffff74] text-4xl md:text-6xl font-bold uppercase">{subjectwise[0]?.subName || '404 |not found'}</h1>
             </div>
             {
                 subjectwise.length > 0 ?

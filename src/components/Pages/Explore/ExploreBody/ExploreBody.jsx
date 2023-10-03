@@ -23,8 +23,8 @@ const ExploreBody = () => {
         const searchText = form.search.value;
         // setSearchvalue(searchText);
         fetch(`http://localhost:5000/documentSearchByTopicName/${searchText}`)
-        .then(res => res.json())
-        .then(data => setAllLectures(data))
+            .then(res => res.json())
+            .then(data => setAllLectures(data))
     }
     let lecture;
     if (alllecture.length == 0) {
@@ -33,7 +33,7 @@ const ExploreBody = () => {
         lecture = alllecture
     }
     return (
-        <div className='bg-[#000]'>
+        <section className='bg-[#000]'>
             <div className=' mx-auto px-6 md:px-0 py-6 md:py-0' >
                 <Tabs className="md:flex">
                     <div className='lg:w-[25%] bg-[#100f0f] text-white md:px-20 md:py-10 text-center px-3'>
@@ -62,10 +62,13 @@ const ExploreBody = () => {
                                                     <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                                         <tr>
                                                             <th className="p-2 whitespace-nowrap">
-                                                                <div className="font-semibold text-left">Author</div>
+                                                                <div className="font-semibold text-left">Cover</div>
                                                             </th>
                                                             <th className="p-2 whitespace-nowrap">
                                                                 <div className="font-semibold text-left">Subject</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Author</div>
                                                             </th>
                                                             <th className="p-2 whitespace-nowrap">
                                                                 <div className="font-semibold text-left">Topic Name</div>
@@ -81,12 +84,15 @@ const ExploreBody = () => {
                                                             lecture.map(report => (
                                                                 <tr key={report._id}>
                                                                     <td className="p-2 whitespace-nowrap">
-                                                                        <div className="">
-                                                                            <div className="font-medium text-gray-800">{report?.name}</div>
-                                                                        </div>
+                                                                        <img className='w-12' src={report?.image} alt="cover-img" />
                                                                     </td>
                                                                     <td className="p-2 whitespace-nowrap">
                                                                         <div className="text-left text-[16px] font-semibold text-black">{report?.subName}</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="">
+                                                                            <div className="font-medium text-gray-800">{report?.name}</div>
+                                                                        </div>
                                                                     </td>
                                                                     <td className="p-2 whitespace-nowrap">
                                                                         <div className="text-left text-[16px]  text-black">{report?.topicName}</div>
@@ -227,7 +233,7 @@ const ExploreBody = () => {
                     </div>
                 </Tabs>
             </div>
-        </div>
+        </section>
     );
 };
 

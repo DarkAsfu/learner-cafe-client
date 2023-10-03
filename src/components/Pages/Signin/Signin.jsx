@@ -32,7 +32,7 @@ const Signin = () => {
         <div className="w-10/12 mx-auto text-center flex justify-center mb-10 mt-24">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                 <div className="card-body">
-                    <div className="text-center mx-auto border border-[#ffc107] rounded-full">
+                    <div className="text-center mx-auto border border-[#D9042B] rounded-full">
                         <lottie-player
                             autoplay
                             loop
@@ -61,11 +61,11 @@ const Signin = () => {
                                 name="password"
                                 className="input input-bordered" />
                             <label className="label">
-                                <span className="">Are you new? Please <Link to="/signup" className="text-[#ffc107]">Sign Up</Link></span>
+                                <span className="">Are you new user? Please <Link to="/signup" className="text-[#D9042B]">Sign Up</Link></span>
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-[#ffc107] text-[#000] hover:text-[#ffc107] hover:bg-[#000]">Sign In</button>
+                            <button className="btn bg-[#D9042B] text-[#fff] hover:text-[#D9042B] hover:bg-[#000]">Sign In</button>
                         </div>
                     </form>
                     <div className="divider">Or Sign In with </div>

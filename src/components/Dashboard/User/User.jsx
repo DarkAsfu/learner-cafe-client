@@ -6,7 +6,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const User = () => {
     const { user } = useContext(AuthContext);
     return (
-        <div className="lg:drawer lg:drawer-open bg-[#0E0F13] h-[100vh]">
+        <div className="lg:drawer lg:drawer-open bg-[#0E0F13] h-[]">
             <input id="hamburger" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 <div className="text-right flex justify-end">
