@@ -1,9 +1,15 @@
+import { useState } from "react";
 import useLatestLecture from "../../../../hooks/useLatestLecture";
 import Card from "../../../Shared/Card/Card";
 
 const LatestLecture = () => {
     const [alllectures] = useLatestLecture()
     // console.log(lectures[1]?.subCode?.toLowerCase()?.includes('cs'));
+    const [show, setShow] = useState(false);
+    const handleShow = () =>{
+        setShow(!show)
+    }
+    const documentShow = show ? alllectures : alllectures.slice(0, 4);
     return (
         <div className="">
             <div className="w-11/12 mx-auto py-14">
@@ -13,8 +19,11 @@ const LatestLecture = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">
                 {
-                    alllectures.slice(0,4).map(document => <Card key={document._id} document={document}></Card>)
+                    documentShow.map(document => <Card key={document._id} document={document}></Card>)
                 }
+            </div>
+            <div className="text-center">
+            <button onClick={handleShow} className="text-[#fff] bg-[#002E3C] px-10 py-3 mt-10 text-center rounded-sm">{show ? 'See Less' : 'View All' }</button>
             </div>
             </div>
         </div>
