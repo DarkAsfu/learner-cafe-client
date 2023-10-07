@@ -60,6 +60,7 @@ const UploadForm = () => {
                         .then(res => res.json())
                         .then(data => {
                             console.log(data);
+                            //here I will add loading before upload the document 
                             if (data.insertedId) {
                                 Swal.fire(
                                     'Thank you!',
