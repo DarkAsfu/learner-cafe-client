@@ -62,7 +62,6 @@ const UploadForm = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);
                             if (data.insertedId) {
                                 Swal.fire(
                                     'Thank you!',
