@@ -8,7 +8,7 @@ const useBookmarks = () => {
     const {data: bookmarks = [], refetch} = useQuery({
         queryKey: ['bookmarks'],
         queryFn: async() =>{
-            const res = await fetch(`http://localhost:5000/mybookmarks?email=${user?.email}`)
+            const res = await fetch(`https://learner-cafe-server.vercel.app/mybookmarks?email=${user?.email}`)
             setLoading(false)
             return res.json();
         }

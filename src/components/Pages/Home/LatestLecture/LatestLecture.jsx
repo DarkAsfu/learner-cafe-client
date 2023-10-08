@@ -23,7 +23,7 @@ const LatestLecture = () => {
                 }
             </div>
             <div className="text-center">
-            <button onClick={handleShow} className="text-[#fff] bg-[#002E3C] px-10 py-3 mt-10 text-center rounded-sm">{show ? 'See Less' : 'View All' }</button>
+            <button onClick={handleShow} className="border-0 text-[#fff] bg-[#002E3C] px-10 py-3 mt-10 text-center rounded-sm">{show ? 'See Less' : 'View All' }</button>
             </div>
             </div>
         </div>

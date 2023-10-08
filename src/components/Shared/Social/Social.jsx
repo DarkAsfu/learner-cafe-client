@@ -13,7 +13,7 @@ const Social = () => {
             const googleLoggedUser = result.user;
             console.log(googleLoggedUser);
             const saveUser = {name: googleLoggedUser.displayName, email: googleLoggedUser.email, image: googleLoggedUser.photoURL};
-            fetch('http://localhost:5000/users', {
+            fetch('https://learner-cafe-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -35,7 +35,7 @@ const Social = () => {
             const gitLoggedIn = result.user;
             console.log(gitLoggedIn);
             const saveUser = {name: gitLoggedIn.displayName, email: gitLoggedIn.email, image: gitLoggedIn.photoURL};
-            fetch('http://localhost:5000/users', {
+            fetch('https://learner-cafe-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -57,7 +57,7 @@ const Social = () => {
             const facebookLogged = result.user;
             console.log(facebookLogged);
             const saveUser = {name: facebookLogged.displayName, email: facebookLogged.email, image: facebookLogged.photoURL};
-            fetch('http://localhost:5000/users', {
+            fetch('https://learner-cafe-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

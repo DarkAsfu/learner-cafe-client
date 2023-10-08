@@ -1,9 +1,15 @@
+import { useState } from "react";
 import usePresentation from "../../../../hooks/usePresentation";
 import Card from "../../../Shared/Card/Card";
 
 const PresentationCategory = () => {
     const [presentation] = usePresentation();
     console.log(presentation);
+    const [show, setShow] = useState(false);
+    const handleShow = () =>{
+        setShow(!show)
+    }
+    const presentaionShow = show ? presentation : presentation.slice(0, 4);
     return (
         <div className="bg-[#fff]">
             <div className="w-11/12 mx-auto py-14">
@@ -13,8 +19,11 @@ const PresentationCategory = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">
                 {
-                    presentation.map(document => <Card key={document._id} document={document}></Card>)
+                    presentaionShow.map(document => <Card key={document._id} document={document}></Card>)
                 }
+            </div>
+            <div className="text-center">
+            <button onClick={handleShow} className="border-0 text-[#fff] bg-[#002E3C] px-10 py-3 mt-10 text-center rounded-sm">{show ? 'See Less' : 'View All' }</button>
             </div>
             </div>
         </div>

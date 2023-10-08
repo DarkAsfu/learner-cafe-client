@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path: '/subwise/:id',
                 element: <SubjectWise></SubjectWise>,
-                loader: ({params}) => fetch(`http://localhost:5000/documentSearchBySubName/${params.id}`)
+                loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/documentSearchBySubName/${params.id}`)
             },
             {
                 path: '/contact',
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
             {
                 path: 'update/:id',
                 element: <UpdateDocument/>,
-                loader: ({params}) => fetch(`http://localhost:5000/lectures/${params.id}`)
+                loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/${params.id}`)
             },
             {
                 path: 'profile',

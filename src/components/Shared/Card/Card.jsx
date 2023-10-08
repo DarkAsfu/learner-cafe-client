@@ -40,13 +40,13 @@ const Card = ({ document }) => {
         })
     }
 
-    //http://localhost:5000/mybookmarks?email=md.ashrafulislam4566@gmail.com
+    //https://learner-cafe-server.vercel.app/mybookmarks?email=md.ashrafulislam4566@gmail.com
     const handleBookmark = () => {
         // console.log(document);
         if (user && user?.email) {
             const bookmark = { bookmarkId: _id, subName, image, subCode, topicName, category, description, driveLink, authorName: name, email: user?.email, authorEmail: email };
             console.log(bookmark);
-            fetch('http://localhost:5000/bookmarks', {
+            fetch('https://learner-cafe-server.vercel.app/bookmarks', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -83,7 +83,7 @@ const Card = ({ document }) => {
     }
     return (
         <div className="border rounded-md shadow-md bg-[#fff]">
-            <img className="rounded-t-md h-[298px] w-full" src={image} alt="cover img" />
+            <img className="rounded-t-md h-[330px] w-full" src={image} alt="cover img" />
             <div className="px-2 space-y-2">
                 <h1 className="text-xl font-bold">{subName}</h1>
                 <p className="text-[16px] font-mono font-bold">{topicName}</p>

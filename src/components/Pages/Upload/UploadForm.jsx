@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -10,9 +10,11 @@ const UploadForm = () => {
     //     const file = e.target.files;
     //     // console.log(file);
     //   };
+    const [load, setLoad] = useState(false)
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const handlesubmit = (e) => {
         e.preventDefault();
+        setLoad(true)
         const form = e.target;
         const subName = form.subname.value;
         const subCode = form.subcode.value;
@@ -38,6 +40,7 @@ const UploadForm = () => {
             date,
             image,
         }
+        
         const formData = new FormData();
         formData.append('image', document.image[0])
         fetch(img_hosting_url, {
@@ -50,7 +53,7 @@ const UploadForm = () => {
                     const imgURL = imgResponse.data.display_url;
                     const document = { name, email, subName, subCode, driveLink, topicName, category, description, date, image: imgURL };
                     console.log(document);
-                    fetch('http://localhost:5000/lectures', {
+                    fetch('https://learner-cafe-server.vercel.app/lectures', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -59,14 +62,15 @@ const UploadForm = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data);
-                            if (data.insertedId) {
+                            if(data.insertedId) {
+                                setLoad(false)
                                 Swal.fire(
                                     'Thank you!',
                                     'Your document is now added',
                                     'success'
                                 )
                                 form.reset();
+                                
                             }
                         })
                 }
@@ -132,7 +136,10 @@ const UploadForm = () => {
                         <input type="file" name="coverImg" className="file-input file-input-bordered file-input-error w-full max-w-xs" />
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn mt-4 text-[#D9042B]  w-full bg-black capitalize" type="submit" value="Add Your lecture" />
+                       {
+                        load  ?
+                        <div className="bg-black py-2 text-center rounded-sm"><span className="loading loading-spinner text-secondary"></span></div> : <input className="btn mt-4 text-[#D9042B]  w-full bg-black capitalize" type="submit" value="Add Your lecture" />
+                        }
                     </div>
                 </form>
             </div>

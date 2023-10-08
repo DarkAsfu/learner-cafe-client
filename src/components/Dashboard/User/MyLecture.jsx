@@ -15,7 +15,7 @@ const MyLecture = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/lectures/${id}`, {
+                fetch(`https://learner-cafe-server.vercel.app/lectures/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

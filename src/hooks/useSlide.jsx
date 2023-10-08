@@ -7,7 +7,7 @@ const useSlide = () => {
     const {data: slide = [], refetch} = useQuery({
         queryKey: ['slide'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/lectures/category/slide');
+            const res = await fetch('https://learner-cafe-server.vercel.app/lectures/category/slide');
             setLoading(false)
             return res.json();
         }

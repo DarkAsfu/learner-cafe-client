@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Books = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/books')
+        fetch('https://learner-cafe-server.vercel.app/books')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])

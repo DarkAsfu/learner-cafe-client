@@ -9,7 +9,7 @@ const useMyDocument = () => {
     const { data: myDocument = [], refetch } = useQuery({
         queryKey: ['myDocument'],
         queryFn: async() =>{
-            const res = await fetch(`http://localhost:5000/myLectures?email=${user?.email}`)
+            const res = await fetch(`https://learner-cafe-server.vercel.app/myLectures?email=${user?.email}`)
             setLoading(false)
             return res.json();
         }

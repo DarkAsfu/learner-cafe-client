@@ -6,7 +6,7 @@ const useSingleDocument = (id) => {
     const {data: document = [], refetch} = useQuery({
         queryKey: ['document'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/lectures/${id}`);
+            const res = await fetch(`https://learner-cafe-server.vercel.app/lectures/${id}`);
             setLoading(false)
             return res.json();
         }

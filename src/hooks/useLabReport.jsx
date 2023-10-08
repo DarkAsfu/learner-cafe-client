@@ -6,7 +6,7 @@ const useLabReport = () => {
     const {data: labreport = [], refetch} = useQuery({
         queryKey: ['labreport'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/lectures/category/labreport');
+            const res = await fetch('https://learner-cafe-server.vercel.app/lectures/category/labreport');
             setLoading(false)
             return res.json();
         }

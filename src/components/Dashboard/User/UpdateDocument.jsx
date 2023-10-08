@@ -22,7 +22,7 @@ const UpdateDocument = () => {
             description,
         }
 
-        fetch(`http://localhost:5000/lectures/${document._id}`, {
+        fetch(`https://learner-cafe-server.vercel.app/lectures/${document._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

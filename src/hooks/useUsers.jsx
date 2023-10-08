@@ -7,7 +7,7 @@ const useUsers = () => {
     const {data: users = [], refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://learner-cafe-server.vercel.app/users');
             setLoading(false)
             return res.json();
         }

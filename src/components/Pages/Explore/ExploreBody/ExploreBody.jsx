@@ -22,7 +22,7 @@ const ExploreBody = () => {
         const form = e.target;
         const searchText = form.search.value;
         // setSearchvalue(searchText);
-        fetch(`http://localhost:5000/documentSearchByTopicName/${searchText}`)
+        fetch(`https://learner-cafe-server.vercel.app/documentSearchByTopicName/${searchText}`)
             .then(res => res.json())
             .then(data => setAllLectures(data))
     }
