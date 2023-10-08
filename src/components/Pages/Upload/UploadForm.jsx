@@ -62,8 +62,8 @@ const UploadForm = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            if(data.insertedId) {
-                                setLoad(false)
+                            console.log(data);
+                            if (data.insertedId) {
                                 Swal.fire(
                                     'Thank you!',
                                     'Your document is now added',
