@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../Card/Card";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 const SubjectWise = () => {
     const subjectwise = useLoaderData();
     console.log(subjectwise);
     return (
+        <>
+        <ScrollToTop/>
         <div className="pt-6 md:pt-0">
             {/* Document: {subjectwise.length} */}
             <div className="py-14" style={{ background: 'url(https://i.ibb.co/tJKLWNz/banner-home.webp)' }}>
@@ -23,6 +26,7 @@ const SubjectWise = () => {
                 </div>
             }
         </div>
+        </>
     );
 };
 

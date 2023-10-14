@@ -1,3 +1,4 @@
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
 import LabreportCategory from "./LabreportCategory/LabreportCategory";
@@ -10,6 +11,7 @@ import Subjects from "./Subjects/Subjects";
 const Home = () => {
     return (
         <div>
+            <ScrollToTop/>
             <Banner/>
             <Categories/>
             <Subjects/>

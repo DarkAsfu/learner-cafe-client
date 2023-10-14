@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useBookmarks from "../../../hooks/useBookmarks";
 import { FaEye, FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 
 const Bookmarks = () => {
     const [bookmarks, , refetch] = useBookmarks();
@@ -37,6 +38,7 @@ const Bookmarks = () => {
     }
     return (
         <div className="">
+            <ScrollToTop/>
             {
                 bookmarks.length === 0 ?
                     <div className="flex flex-col justify-center items-center h-[90vh]">

@@ -1,3 +1,4 @@
+import ScrollToTop from '../../ScrollToTop/ScrollToTop';
 import './Upload.css'
 import UploadForm from './UploadForm';
 const Upload = () => {
@@ -9,6 +10,7 @@ const Upload = () => {
             <p className='text-[#fff] font-bold font-mono text-sm md:text-xl'>Make sure your upload your document google drive fast then share the link </p>
             </div>
         </div> */}
+        <ScrollToTop/>
         <UploadForm/>
         </>
     );

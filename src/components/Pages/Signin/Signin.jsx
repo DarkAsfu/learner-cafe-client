@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import Social from "../../Shared/Social/Social";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 const Signin = () => {
     const { signIn } = useContext(AuthContext)
     const [error, setError] = useState('');
@@ -29,6 +30,8 @@ const Signin = () => {
     }
 
     return (
+        <>
+        <ScrollToTop/>
         <div className="w-10/12 mx-auto text-center flex justify-center mb-10 mt-24">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                 <div className="card-body">
@@ -75,6 +78,7 @@ const Signin = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

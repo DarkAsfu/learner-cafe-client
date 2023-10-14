@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 
 const Books = () => {
     const [books, setBooks] = useState([]);
@@ -11,6 +12,8 @@ const Books = () => {
 
     console.log(books);
     return (
+        <>
+        <ScrollToTop/>
         <div className="w-11/12 mx-auto py-20">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
                 {
@@ -26,6 +29,7 @@ const Books = () => {
                 }
             </div>
         </div>
+        </>
     );
 };
 

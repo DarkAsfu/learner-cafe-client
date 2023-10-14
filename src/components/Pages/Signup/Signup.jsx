@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Social from "../../Shared/Social/Social";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 const Signup = () => {
     const {user, createUser} = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -45,6 +46,8 @@ const Signup = () => {
         })
     }
     return (
+        <>
+        <ScrollToTop/>
         <div className="w-10/12 mx-auto text-center flex justify-center mb-10 mt-24">
             <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100">
                 <div className="card-body">
@@ -100,6 +103,7 @@ const Signup = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
