@@ -4,6 +4,7 @@ import LabreportCategory from "./LabreportCategory/LabreportCategory";
 import LatestLecture from "./LatestLecture/LatestLecture";
 import LectureCategory from "./LectureCategory/LectureCategory";
 import PresentationCategory from "./PresentationCategory/PresentationCategory";
+import SlideCategory from "./SlideCategory/SlideCategory";
 import Subjects from "./Subjects/Subjects";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <LectureCategory/>
             <PresentationCategory/>
             <LabreportCategory/>
+            <SlideCategory/>
         </div>
     );
 };

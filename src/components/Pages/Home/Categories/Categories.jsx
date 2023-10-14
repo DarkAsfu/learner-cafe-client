@@ -6,31 +6,31 @@ const Categories = () => {
             id: 1,
             name: "Lecture",
             icon: "https://i.ibb.co/z5WtrbR/lectern.png",
-            path: "/lecture"
+            path: "lecture"
         },
         {
             id: 2,
             name: "Slides",
             icon: "https://i.ibb.co/JRZLJKj/google-2.png",
-            path: "/slides"
+            path: "slide"
         },
         {
             id: 3,
             name: "Lab Report",
             icon: "https://i.ibb.co/7YMfZMf/lab.png",
-            path: "/labreport"
+            path: "labreport"
         },
         {
             id: 4,
             name: "Presentation",
             icon: "https://i.ibb.co/kJNvgsF/presentation.png",
-            path: "/presentation"
+            path: "presentation"
         },
         {
             id: 5,
             name: "Suggestion",
             icon: "https://i.ibb.co/Ms1YHL2/idea.png",
-            path: "/suggestion"
+            path: "suggestion"
         }
     ]
     return (

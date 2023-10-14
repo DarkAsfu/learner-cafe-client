@@ -18,6 +18,7 @@ import SubjectWise from "../components/Shared/SubjectWise/SubjectWise";
 import Books from "../components/Pages/Books/Books";
 import UploadBooks from "../components/Dashboard/Admin/UploadBooks";
 import Contact from "../components/Pages/Contact/Contact";
+import CategoryWise from "../components/Pages/CategoryWise/CategoryWise";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact/>
+            },
+            {
+                path: '/category/:id',
+                element: <CategoryWise/>,
+                loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/category/${params.id}`)
             }
         ]
     },

@@ -66,8 +66,9 @@ const Subjects = () => {
           '--swiper-navigation-size' : '30px'
         }}
         autoplay={{
-          delay: 1500,
+          delay: 2500,
         }}
+        pauseOnMouseEnter={true}
         navigation={true}
         modules={[Autoplay, Navigation]}
         className="mySwiper"

@@ -77,7 +77,7 @@ const UploadForm = () => {
             })
     }
     return (
-        <div className="bg-[url(https://i.ibb.co/syp2dX5/explore.jpg)] bg-cover bg-fixed bg-no-repeat bg-[#ffffff] py-20 ">
+        <div className="bg-[url(https://i.ibb.co/QpzZ6xK/explore-1.jpg)] bg-cover bg-fixed bg-no-repeat bg-[#ffffff] py-20 ">
             <div className="md:w-8/12 lg:w-6/12 md:mx-auto py-10 my-20 bg-white md:px-10 px-6 shadow-md rounded-md mx-3">
                 <h1 className="text-[#D9042B] text-2xl font-bold">Upload Your Lecture</h1>
                 <form onSubmit={handlesubmit}>
