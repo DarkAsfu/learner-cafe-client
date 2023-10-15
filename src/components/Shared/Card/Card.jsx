@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useBookmarks from "../../../hooks/useBookmarks";
 const Card = ({ document }) => {
-    // console.log(document);
     const { _id, subName, subCode, topicName, name, date, category, description, driveLink, email, image } = document
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();

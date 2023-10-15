@@ -19,6 +19,7 @@ import Books from "../components/Pages/Books/Books";
 import UploadBooks from "../components/Dashboard/Admin/UploadBooks";
 import Contact from "../components/Pages/Contact/Contact";
 import CategoryWise from "../components/Pages/CategoryWise/CategoryWise";
+import SetDocStatus from "../components/Dashboard/Admin/setDocStatus";
 
 const router = createBrowserRouter([
     {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: 'uploadBooks',
                 element: <AdminRoute><UploadBooks/></AdminRoute>
+            },
+            {
+                path: 'setDocSatus',
+                element: <SetDocStatus/>
             },
             // user
             {

@@ -19,6 +19,7 @@ const Admin = () => {
                     <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="/dashboard"><img className="w-10" src="https://i.ibb.co/kH8XvFm/home.png" alt="Home" />Home</Link></li>
                     <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="allusers"><img className="w-10"  src="https://i.ibb.co/GW0p1hz/office.png" alt="" />All Users</Link></li>
                     <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="uploadBooks"><img className="w-10" src="https://i.ibb.co/jb4hXTs/open-book.png" alt="" />Books</Link></li>
+                    <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="setDocSatus"><img className="w-10" src="https://i.ibb.co/JRZLJKj/google-2.png" alt="" />Queue Docs</Link></li>
                     <li className="text-[18px] font-mono font-bold"><Link className="text-[#fff] hover:text-white" to="/"><img className="w-10 rotate-180" src="https://i.ibb.co/jzqvjc4/right-arrow.png" alt="" />Back To Home</Link></li>
                 </ul>
             </div>

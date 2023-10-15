@@ -53,7 +53,7 @@ const UploadForm = () => {
                     const imgURL = imgResponse.data.display_url;
                     const document = { name, email, subName, subCode, driveLink, topicName, category, description, date, image: imgURL };
                     console.log(document);
-                    fetch('https://learner-cafe-server.vercel.app/lectures', {
+                    fetch('https://learner-cafe-server.vercel.app/queueDoc', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -66,7 +66,7 @@ const UploadForm = () => {
                                 setLoad(false);
                                 Swal.fire(
                                     'Thank you!',
-                                    'Your document is now added',
+                                    'Our team review your doc then it will be live',
                                     'success'
                                 )
                                 form.reset();
