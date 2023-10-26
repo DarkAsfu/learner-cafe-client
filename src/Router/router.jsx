@@ -20,6 +20,7 @@ import UploadBooks from "../components/Dashboard/Admin/UploadBooks";
 import Contact from "../components/Pages/Contact/Contact";
 import CategoryWise from "../components/Pages/CategoryWise/CategoryWise";
 import SetDocStatus from "../components/Dashboard/Admin/setDocStatus";
+import Details from "../components/Pages/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -64,9 +65,18 @@ const router = createBrowserRouter([
                 element: <Contact/>
             },
             {
+                path: '/uploadBook',
+                element: <UploadBooks/>
+            },
+            {
                 path: '/category/:id',
                 element: <CategoryWise/>,
                 loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/category/${params.id}`)
+            },
+            {
+                path: '/details/:id',
+                element: <Details/>,
+                // loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/${params.id}`)
             }
         ]
     },

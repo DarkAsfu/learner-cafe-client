@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { FaBookmark, FaDownload, FaShare } from "react-icons/fa6";
+import { FaBookmark, FaDownload } from "react-icons/fa6";
+import { HiInformationCircle } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -9,17 +10,7 @@ const Card = ({ document }) => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [, , refetch] = useBookmarks();
-    // console.log(bookmarks);
-    // const setImageCSE = document?.subCode?.toLowerCase()?.includes('cse')
-    // const setImageEEE = document?.subCode?.toLowerCase()?.includes('eee')
-    // let img;
-    // if(setImageCSE){
-    //     img = 'https://i.ibb.co/f4mCKRv/cse.png';
-    // }else if (setImageEEE){
-    //     img= 'https://i.ibb.co/XWSK64r/EEE-Document.png';
-    // }else{
-    //     img = "https://i.ibb.co/qsdkRbH/pexels-pixabay-261579.jpg"
-    // }
+
     const showToast = () => {
         const Toast = Swal.mixin({
             toast: true,
@@ -39,7 +30,6 @@ const Card = ({ document }) => {
         })
     }
 
-    //https://learner-cafe-server.vercel.app/mybookmarks?email=md.ashrafulislam4566@gmail.com
     const handleBookmark = () => {
         // console.log(document);
         if (user && user?.email) {
@@ -80,8 +70,9 @@ const Card = ({ document }) => {
             })
         }
     }
+    // http://localhost:5000/lectures/6537e67c6ebeeac8053f6439
     return (
-        <div className="border rounded-md shadow-md bg-[#fff]">
+        <div  className="border rounded-md shadow-md bg-[#fff]">
             <img className="rounded-t-md h-[330px] w-full" src={image} alt="cover img" />
             <div className="px-2 space-y-2">
                 <h1 className="text-xl font-bold">{subName}</h1>
@@ -100,7 +91,8 @@ const Card = ({ document }) => {
                             <Link target="_blank" to={driveLink}><FaDownload></FaDownload></Link>
                             : <Link onClick={showToast} to='/signin'><FaDownload></FaDownload></Link>
                     }
-                    <FaShare></FaShare>
+                    {/* Open the modal using document.getElementById('ID').showModal() method */}
+                    <Link to={`/details/${_id}`}><HiInformationCircle></HiInformationCircle></Link>
                 </div>
             </div>
         </div>

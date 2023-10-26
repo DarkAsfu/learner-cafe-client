@@ -30,7 +30,6 @@ const SetDocStatus = () => {
             date,
             image
         }
-        console.log(addDoc);
         fetch('https://learner-cafe-server.vercel.app/lectures', {
             method: 'POST',
             headers: {

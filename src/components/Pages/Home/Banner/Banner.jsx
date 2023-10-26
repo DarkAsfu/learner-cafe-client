@@ -9,13 +9,13 @@ const Banner = () => {
                     <h1 className='capitalize z-10'>Read, Upload and share</h1>
                     <TypeAnimation
                         sequence={['Presentation', 1000, 'Lecture Sheet', 1000, 'Lab Report', 1000, 'GUB Slides', 1000]}
-                        style={{ color: '#fff' }}
+                        style={{ color: '#000' }}
                         repeat={Infinity}
                     />
                 </div>
                 <div className="divider text-white md:w-[350px] w-[150px] bg-white h-2"></div>
-                <p className='text-[#OD0D0D] text-[20.8px]'>Discover an array of documents. Help us amplify learning together.</p>
-                <Link to="/explore"><button className='btn text-[white] bg-[#D9042B] px-14 pt-4 pb-4 mt-10 border-0 hover:bg-transparent hover:text-[#D9042B] hover:bg-[#fff] font-bold'>Explore All Document</button></Link>
+                <p className='text-[#OD0D0D] text-[15px] md:text-[20px] '>Discover an array of documents. Help us amplify learning together.</p>
+                <Link to="/explore"><button className='btn text-[#fff] bg-[#D9042B] hover:text-black px-10 pt-4 pb-4 mt-10 border-0 hover:border font-bold'>Explore All Document</button></Link>
             </div>
             <div className="rotate-180 hidden">
                 <svg className='' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
