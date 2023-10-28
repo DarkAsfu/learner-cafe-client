@@ -6,8 +6,7 @@ import useBookmarks from "../../../hooks/useBookmarks";
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const [bookmarks] = useBookmarks();
-    // console.log(user);
+    const [bookmarks, loading, refetch] = useBookmarks();
     const handleLogOut = () => {
         logOut()
             .then(() => {
