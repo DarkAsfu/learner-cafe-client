@@ -91,7 +91,6 @@ const Card = ({ document }) => {
                             <Link target="_blank" to={driveLink}><FaDownload></FaDownload></Link>
                             : <Link onClick={showToast} to='/signin'><FaDownload></FaDownload></Link>
                     }
-                    {/* Open the modal using document.getElementById('ID').showModal() method */}
                     <Link to={`/details/${_id}`}><HiInformationCircle></HiInformationCircle></Link>
                 </div>
             </div>

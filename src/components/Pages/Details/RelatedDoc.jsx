@@ -10,7 +10,6 @@ const RelatedDoc = ({ category }) => {
         queryKey: ['categories', category, params.id],
         queryFn: async () => {
             if (!params.id) {
-                // Skip the API call if params.id is undefined
                 setLoading(false);
                 return [];
             }
@@ -30,7 +29,7 @@ const RelatedDoc = ({ category }) => {
     return (
         <div>
             {loading ? (
-                <img className="w-10" src="https://i.ibb.co/brR61WV/airplane.gif" alt="Loading" />
+                <img className="w-36" src="https://i.ibb.co/brR61WV/airplane.gif" alt="Loading" />
             ) : (
                 <div>
                     <h1 className="text-[28px] text-[#0D0D0D] font-sans uppercase font-bold mt-10">

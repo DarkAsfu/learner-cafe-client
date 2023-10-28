@@ -4,7 +4,6 @@ import Home from "../components/Pages/Home/Home";
 import Signin from "../components/Pages/Signin/Signin";
 import Signup from "../components/Pages/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
-import PrivateRouter from "./privateRouter";
 import AllUsers from "../components/Dashboard/Admin/AllUsers";
 import MyLecture from "../components/Dashboard/User/MyLecture";
 import DashboardHome from "../components/Dashboard/DashboardHome/DashboardHome";
@@ -21,6 +20,7 @@ import Contact from "../components/Pages/Contact/Contact";
 import CategoryWise from "../components/Pages/CategoryWise/CategoryWise";
 import SetDocStatus from "../components/Dashboard/Admin/setDocStatus";
 import Details from "../components/Pages/Details/Details";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
