@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const img_hosting_token = import.meta.env.VITE_ImageUpload_Token;
 const UploadBooks = () => {
+    useTitle('Upload Book | Learner Cafe');
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const handlesubmit = (e) =>{
         e.preventDefault();

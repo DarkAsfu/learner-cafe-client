@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className="banner bg-fixed">
-            <div className='text-white md:w-9/12 px-6 mx-auto md:pt-[10%] pt-[40%]'>
+            <div data-aos="fade-right" className='text-white md:w-9/12 px-6 mx-auto md:pt-[10%] pt-[40%]'>
                 <div className='md:text-[64px] text-[32px] font-semibold font-serif'>
                     <h1 className='capitalize z-10'>Read, Upload and share</h1>
                     <TypeAnimation

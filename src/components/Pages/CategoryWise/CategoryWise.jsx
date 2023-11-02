@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../../Shared/Card/Card";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const CategoryWise = () => {
     const categoriesDoc = useLoaderData();
     console.log(categoriesDoc);
+    useTitle(`${categoriesDoc[0].category} | Learner Cafe`)
     return (
         <div className="w-10/12 mx-auto py-24">
             <ScrollToTop/>

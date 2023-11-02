@@ -3,8 +3,10 @@ import useBookmarks from "../../../hooks/useBookmarks";
 import { FaEye, FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const Bookmarks = () => {
+    useTitle('Bookmark | Learner Cafe');
     const [bookmarks, , refetch] = useBookmarks();
     // console.log(bookmarks);
     const handleDelete = (id) => {

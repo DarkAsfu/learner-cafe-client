@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 
 const Books = () => {
+    useTitle('Book | Learner Cafe');
     const [books, setBooks] = useState([]);
     useEffect(() => {
         fetch('https://learner-cafe-server.vercel.app/books')

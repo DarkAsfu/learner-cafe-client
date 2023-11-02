@@ -5,6 +5,7 @@ import RelatedDoc from "./RelatedDoc";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const Details = () => {
     const { user } = useContext(AuthContext);
@@ -12,7 +13,8 @@ const Details = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [document, loading, refetch] = useSingleDocument(params.id);
-
+    useTitle(`${document.subName} | Learner Cafe`);
+    
     useEffect(() => {
         refetch(params.id);
     }, [params.id, refetch]);
@@ -47,7 +49,31 @@ const Details = () => {
             // return <Navigate to='/signin' state={{ from: location }} replace />;
         }
     }
-
+    const description = document?.description;
+    const formatDescription = (str) => {
+        const linkRegex = /(https?:\/\/[^\s]+)/g;
+        const links = [];
+    
+        let linkCounter = 1;
+        let formattedString = str;
+    
+        // Replace each link with a placeholder
+        formattedString = str.replace(linkRegex, (match, url) => {
+          const linkName = `Link ${linkCounter++}`;
+          links.push({ name: linkName, url });
+          return `%%${links.length - 1}%%`;
+        });
+    
+        // Replace the placeholders with clickable anchor tags
+        links.forEach(({ name, url }, index) => {
+          const placeholder = `%%${index}%%`;
+          const linkTag = `<a href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`;
+          formattedString = formattedString.replace(placeholder, linkTag);
+        });
+    
+        return formattedString;
+      };
+    
     return (
         <>
             <ScrollToTop />
@@ -61,7 +87,7 @@ const Details = () => {
                         <hr />
                         {
                             document.description
-                            && <p>{document?.description?.slice(0, 150)}.... see more</p>
+                            &&  <div className="whitespace-pre-line" dangerouslySetInnerHTML={{ __html: formatDescription(description) }} ></div>
                         }
                         <p><span className="font-semibold">Category:</span> {document.category}</p>
                         <p><span className="font-semibold">Date:</span> {document.date}</p>
@@ -69,7 +95,7 @@ const Details = () => {
                         <p><span className="font-semibold">Email:</span> {document.email}</p>
                         <div className="card-actions">{
                             user ? <Link className="btn bg-[#002E3C] text-white" target="_blank" to={document.driveLink}>Read Now</Link> :
-                            <button onClick={showToast}>Read Now</button>
+                            <button className="btn bg-[#002E3C] text-white" onClick={showToast}>Read Now</button>
                         }
                             
                         </div>

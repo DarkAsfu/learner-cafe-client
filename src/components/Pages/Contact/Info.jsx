@@ -26,7 +26,7 @@ const Info = () => {
         <div>
             <div>
                 {
-                    contactDetails.map(details => <div className="bg-white mb-6 gap-4 px-5 py-7 flex items-center rounded-md" key={details.id}>
+                    contactDetails.map(details => <div className="bg-white mb-6 gap-4 px-5 py-6 flex items-center rounded-md" key={details.id}>
                         <div className="text-[24px] bg-[#d9042b13] text-[#D9042B] p-4 rounded-full">{details.icon}</div>
                         <div>
                             <h1 className="text-[17px] font-bold">{details.title}</h1>

@@ -1,23 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/8xLW762/pressure.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learner cafe | Home</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <title>Home | Learner Cafe</title>
+  
+  <!-- Open Graph Protocol (OGP) Tags -->
+  <meta property="og:title" content="Home | Learner Cafe" />
+  <meta property="og:description" content="Discover an array of documents. Help us amplify learning together." />
+  <meta property="og:image" content="https://i.ibb.co/8xLW762/pressure.png" />
+  <meta property="og:url" content="https://learner-cafe.web.app/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Home | Learner Cafe" />
+  <meta name="twitter:description" content="Discover an array of documents. Help us amplify learning together." />
+  <meta name="twitter:image" content="https://i.ibb.co/8xLW762/pressure.png" />
+  <meta name="twitter:url" content="https://learner-cafe.web.app/" />
 </head>
-
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function () {
       emailjs.init("q1JNcaW28QoLAtq0t");
     })();
   </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
-
 </html>

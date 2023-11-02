@@ -21,7 +21,7 @@ const ContactForm = () => {
     return (
         <div className="bg-white px-6 py-10 rounded-md">
             <h1 className="text-black text-2xl font-semibold capitalize">Send Message</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, maxime.</p>
+            
             <form ref={form} onSubmit={handleSendMessage}>
                 <div className="flex gap-3 mt-3">
                 <input type="text" placeholder="Your Name" name="name" className="input w-full input-bordered" />

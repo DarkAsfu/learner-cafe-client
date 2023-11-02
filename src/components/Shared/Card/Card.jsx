@@ -72,7 +72,7 @@ const Card = ({ document }) => {
     }
     // http://localhost:5000/lectures/6537e67c6ebeeac8053f6439
     return (
-        <div  className="border rounded-md shadow-md bg-[#fff]">
+        <div data-aos="fade-up" className="border rounded-md shadow-md bg-[#fff]">
             <img className="rounded-t-md h-[330px] w-full" src={image} alt="cover img" />
             <div className="px-2 space-y-2">
                 <h1 className="text-xl font-bold">{subName}</h1>

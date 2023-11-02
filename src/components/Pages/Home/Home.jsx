@@ -1,3 +1,4 @@
+import useTitle from "../../../hooks/useTitle";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
@@ -9,6 +10,7 @@ import SlideCategory from "./SlideCategory/SlideCategory";
 import Subjects from "./Subjects/Subjects";
 
 const Home = () => {
+    useTitle('Home | Learner Cafe');
     return (
         <div>
             <ScrollToTop/>

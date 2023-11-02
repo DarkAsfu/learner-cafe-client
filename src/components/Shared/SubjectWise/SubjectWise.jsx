@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../Card/Card";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 const SubjectWise = () => {
     const subjectwise = useLoaderData();
-    console.log(subjectwise);
+    useTitle(`${subjectwise[0]?.subName} | Learner Cafe`)
     return (
         <>
         <ScrollToTop/>

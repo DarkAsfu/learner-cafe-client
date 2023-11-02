@@ -57,7 +57,7 @@ const Subjects = () => {
   ];
 
   return (
-    <div className='w-11/12 mx-auto mt-24'>
+    <div data-aos="zoom-in" className='w-11/12 mx-auto mt-24'>
       <Swiper
         spaceBetween={30}
         style={{
@@ -90,7 +90,7 @@ const Subjects = () => {
         }}
       >
         {subjects.map((subject) => (
-          <SwiperSlide key={subject?.id}>
+          <SwiperSlide  key={subject?.id}>
             <Link to={`/subwise/${subject?.path}`}>
             <div className='text-center py-10 card bg-[#f2f2f2] h-[170px]'>
               <img className='w-10 mx-auto' src={subject?.icon} alt='' />

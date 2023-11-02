@@ -4,7 +4,9 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import Social from "../../Shared/Social/Social";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+import useTitle from "../../../hooks/useTitle";
 const Signin = () => {
+    useTitle('SignIn | Learner Cafe');
     const { signIn } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
