@@ -57,7 +57,7 @@ To set up the project locally, follow these steps:
 
    ```bash
    git clone https://github.com/DarkAsfu/learner-cafe-client.git
-   cd gub-material
+   cd learner-cafe-client
    ```
 
 2. Install dependencies:
