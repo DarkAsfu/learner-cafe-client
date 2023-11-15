@@ -3,13 +3,16 @@ import User from "../components/Dashboard/User/User";
 import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-    // const isAdmin = 1;
-    const isAdmin = useAdmin();
-    const admin = isAdmin[0];
+    const [isAdmin, isAdminLoading] = useAdmin();
     return (
         <div>
             {
-                admin ? <Admin></Admin> : <User></User>
+                isAdminLoading ? <div className="flex justify-center items-center mt-[25%]"><img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="loading" /></div> :
+                <div>
+                    {
+                        isAdmin ? <Admin></Admin> : <User></User>
+                    }
+                </div>
             }
         </div>
     );

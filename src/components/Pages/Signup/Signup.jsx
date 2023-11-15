@@ -20,12 +20,15 @@ const Signup = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({name, email, password});
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date();
+        const date = today.toLocaleDateString("en-US", options)
+        // console.log({name, email, password, date});
         createUser(email, password)
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            const saveUser = {name, email: loggedUser.email, image: loggedUser.photoURL};
+            const saveUser = {name, email: loggedUser.email, image: loggedUser.photoURL, date};
             fetch('https://learner-cafe-server.vercel.app/users', {
                 method: 'POST',
                 headers: {

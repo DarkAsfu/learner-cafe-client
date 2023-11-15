@@ -67,7 +67,8 @@ const Details = () => {
         // Replace the placeholders with clickable anchor tags
         links.forEach(({ name, url }, index) => {
           const placeholder = `%%${index}%%`;
-          const linkTag = `<a href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`;
+          const linkTag = `<a style="
+          color: blue;" href="${url}" target="_blank" rel="noopener noreferrer">${name}</a>`;
           formattedString = formattedString.replace(placeholder, linkTag);
         });
     
