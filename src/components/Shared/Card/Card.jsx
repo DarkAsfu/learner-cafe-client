@@ -34,7 +34,6 @@ const Card = ({ document }) => {
         // console.log(document);
         if (user && user?.email) {
             const bookmark = { bookmarkId: _id, subName, image, subCode, topicName, category, description, driveLink, authorName: name, email: user?.email, authorEmail: email };
-            console.log(bookmark);
             fetch('https://learner-cafe-server.vercel.app/bookmarks', {
                 method: 'POST',
                 headers: {

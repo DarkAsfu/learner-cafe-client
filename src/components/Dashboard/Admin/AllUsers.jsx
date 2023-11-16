@@ -1,7 +1,7 @@
 import useUsers from "../../../hooks/useUsers";
 import './style/alluser.css'
 const AllUsers = () => {
-    const [users, loading] = useUsers();
+    const [users] = useUsers();
     return (
         <section>
         <div className="container">

@@ -4,7 +4,6 @@ import Card from "../../../Shared/Card/Card";
 
 const LectureCategory = () => {
     const [lectures] = useLecture()
-    console.log(lectures);
     const [show, setShow] = useState(false);
     const handleShow = () =>{
         setShow(!show)

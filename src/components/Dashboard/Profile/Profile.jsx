@@ -4,7 +4,6 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Profile = () => {
     const {user} = useContext(AuthContext);
-    console.log(user);
     return (
         <div>
             <div className="bg-black card mx-10 py-10 md:w-[400px] md:mx-auto mt-36">

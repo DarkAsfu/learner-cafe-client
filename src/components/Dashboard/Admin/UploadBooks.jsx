@@ -27,7 +27,6 @@ const UploadBooks = () => {
             if(imgResponse.success){
                 const imgURL = imgResponse.data.display_url;
                 const book = {bookName, driveLink, image: imgURL};
-                console.log(book);
                 fetch('https://learner-cafe-server.vercel.app/books', {
                     method: 'POST',
                     headers: {

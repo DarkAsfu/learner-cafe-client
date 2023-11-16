@@ -8,7 +8,6 @@ import useTitle from "../../../hooks/useTitle";
 const Bookmarks = () => {
     useTitle('Bookmark | Learner Cafe');
     const [bookmarks, , refetch] = useBookmarks();
-    // console.log(bookmarks);
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -25,7 +24,6 @@ const Bookmarks = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',

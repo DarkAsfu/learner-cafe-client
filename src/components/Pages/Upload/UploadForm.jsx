@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const img_hosting_token = import.meta.env.VITE_ImageUpload_Token;
 const UploadForm = () => {
-    console.log(img_hosting_token);
     const { user } = useContext(AuthContext);
     // const handleFileChange = (e) => {
     //     const file = e.target.files;
@@ -52,7 +51,6 @@ const UploadForm = () => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const document = { name, email, subName, subCode, driveLink, topicName, category, description, date, image: imgURL };
-                    console.log(document);
                     fetch('https://learner-cafe-server.vercel.app/queueDoc', {
                         method: 'POST',
                         headers: {

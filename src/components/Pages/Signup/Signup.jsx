@@ -13,7 +13,6 @@ const Signup = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/"
-    console.log(user, createUser);
     const handleRegister = (e) =>{
         e.preventDefault();
         const form = e.target;

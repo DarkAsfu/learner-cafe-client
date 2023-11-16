@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import useMyDocument from "../../../hooks/useMyDocument";
 import Swal from "sweetalert2";
+import useLatestLecture from "../../../hooks/useLatestLecture";
+import useAdmin from "../../../hooks/useAdmin";
 const MyLecture = () => {
-    const [myDocument, loading, refetch] = useMyDocument();
+    let [alllectures] = useLatestLecture();
+    let [myDocument, loading, refetch] = useMyDocument();
+    const [isAdmin] = useAdmin();
+    if(isAdmin){
+        myDocument = alllectures;
+    }
     const handleDelete = (id) => {
-        console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
