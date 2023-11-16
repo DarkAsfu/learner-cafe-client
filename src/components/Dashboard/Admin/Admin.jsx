@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 const Admin = () => {
 
     return (
-        <div className="drawer lg:drawer-open bg-blue-100">
+        <div className="drawer lg:drawer-open bg-[#161623]">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Page content here */}
@@ -12,7 +12,7 @@ const Admin = () => {
                 <Outlet></Outlet>
 
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side z-10">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-6 w-80 h-full bg-[#09212E] space-y-6">
                     {/* Sidebar content here */}
