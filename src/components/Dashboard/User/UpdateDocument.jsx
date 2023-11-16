@@ -34,7 +34,7 @@ const UpdateDocument = () => {
             if(data.modifiedCount > 0){
                 Swal.fire(
                     'Good job!',
-                    'Toy updated successfully',
+                    'Document updated successfully',
                     'success'
                 )
                 form.reset();

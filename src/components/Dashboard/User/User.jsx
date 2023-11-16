@@ -6,9 +6,9 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const User = () => {
     const { user } = useContext(AuthContext);
     return (
-        <div className="lg:drawer lg:drawer-open bg-[#0E0F13] h-[]">
+        <div className="lg:drawer lg:drawer-open bg-[#0E0F13] ">
             <input id="hamburger" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
+            <div className="drawer-content bg-[#0E0F13]">
                 <div className="text-right flex justify-end">
                     <label htmlFor="hamburger" className="peer-checked:hamburger block relative z-20 p-6  cursor-pointer lg:hidden ">
                         <div aria-hidden="true" className="h-0.5 w-6 rounded bg-[#D9042B] transition duration-300"></div>
@@ -17,9 +17,9 @@ const User = () => {
                 </div>
                 <Outlet></Outlet>
             </div>
-            <div className="drawer-side">
+            <div className="drawer-side z-10">
                 <label htmlFor="hamburger" className="drawer-overlay"></label>
-                <ul className="w-80 h-full bg-[#17181C] text-base-content">
+                <ul className="w-72 h-full bg-[#17181C] text-base-content">
                     {/* Sidebar content here */}
                     <div className="flex items-center justify-around bg-white py-3 border-b-2 border-green-200">
                         <Link to="/">
