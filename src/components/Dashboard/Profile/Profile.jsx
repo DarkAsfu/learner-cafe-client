@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const Profile = () => {
     const { user } = useContext(AuthContext);
-    const [users] = useUsers();
+    const [users, , refetch] = useUsers();
     const navigate = useNavigate();
     const data = users.find(singleUser => user.email == singleUser.email);
     console.log(data);
@@ -40,6 +40,7 @@ const Profile = () => {
                 const modal = document.getElementById('my_modal_5');
                 if (modal) {
                     modal.close();
+                    refetch()
                 }
             }
         })
@@ -65,7 +66,6 @@ const Profile = () => {
 
                             <div className="modal-action -mt-12">
                                 <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
                                     <button className="btn bg-red-700 hover:bg-red-900 text-white">Cancel</button>
                                 </form>
                             </div>
@@ -74,7 +74,7 @@ const Profile = () => {
                     <div className="content">
                         <div className="imgBx"><img src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/2qr381T/user-1.png"} alt="" /></div>
                         <div className="contentBx">
-                            <h3>{user?.displayName}<br /><span>{user?.email}</span></h3>
+                            <h3>{data?.name}<br /><span>{data?.email}</span></h3>
                         </div>
                     </div>
                     <ul className="sci" style={{ position: "absolute", display: "flex", bottom: "50px" }}>
