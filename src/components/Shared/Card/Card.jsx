@@ -84,7 +84,7 @@ const Card = ({ document }) => {
                     <p className="text-[#09212E] font-mono text-[14px] font-bold mb-4">{date}</p>
                 </div>
                 <div className="flex items-center mb-4 gap-3 text-[18px] text-[#D9042B]">
-                    <button onClick={() => handleBookmark()}><FaBookmark></FaBookmark></button>
+                    <button id="btn" aria-label="Bookmark" onClick={() => handleBookmark()}><FaBookmark></FaBookmark></button>
                     {
                         user ?
                             <Link target="_blank" to={driveLink}><FaDownload></FaDownload></Link>
