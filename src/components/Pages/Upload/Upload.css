@@ -5,3 +5,18 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.react-tabs__tab--selected {
+    border-bottom: none;
+  }
+
+  .custom-tab {
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .custom-tab--selected {
+    border-bottom: 2px solid #fff; /* Customize the border style as needed */
+  }

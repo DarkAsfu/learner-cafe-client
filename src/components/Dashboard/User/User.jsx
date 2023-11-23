@@ -32,7 +32,7 @@ const User = () => {
                     </div>
                     <Link to="/dashboard"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Home</li></Link>
                     <Link to="mylecture"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">My Lecture</li></Link>
-                    <Link to="/"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">My slide</li></Link>
+                    {/* <Link to="/"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">My slide</li></Link> */}
                     <Link to="/upload"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Add Product</li></Link>
                     <Link to="profile"><li className="mx-4 px-4 rounded-sm text-[#8C8D8F] font-semibold text-[16px] mt-12 hover:bg-[#8C52FF] hover:text-[#fff] py-3 transition-all duration-300">Profile</li></Link>
                 </ul>

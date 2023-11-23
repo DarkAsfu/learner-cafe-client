@@ -75,7 +75,7 @@ const UploadForm = () => {
             })
     }
     return (
-        <div className=" bg-[#2f2f2f] py-20 ">
+        <div className="">
             <div className="md:w-8/12 lg:w-6/12 md:mx-auto py-10 my-20 bg-[#ffffff] md:px-10 px-6 shadow-md rounded-md mx-3">
                 <h1 className="text-[#D9042B] text-2xl font-bold">Upload Your Lecture</h1>
                 <form onSubmit={handlesubmit}>
@@ -106,7 +106,7 @@ const UploadForm = () => {
                             </label>
                             <input type="text" placeholder="Enter your topic name" name="topicname" className="input input-bordered w-full" required />
                         </div>
-                        <div className="form-control w-full">
+                        <div className="form-control w-full text-black">
                             <label className="label">
                                 <span className="label-text capitalize font-mono font-bold text-[16px]">Select your category</span>
                             </label>
@@ -131,12 +131,12 @@ const UploadForm = () => {
                         <label className="label">
                             <span className="label-text capitalize font-mono font-bold text-[16px]">Select Cover Image</span>
                         </label>
-                        <input type="file" name="coverImg" className="file-input file-input-bordered file-input-error w-full max-w-xs" />
+                        <input type="file" name="coverImg" className="file-input file-input-bordered file-input-error w-full max-w-xs text-black" />
                     </div>
                     <div className="form-control mt-6">
                        {
                         load  ?
-                        <div className="bg-black py-2 text-center rounded-sm"><span className="loading loading-spinner text-secondary"></span></div> : <input className="btn mt-4 text-[#D9042B]  w-full bg-black capitalize" type="submit" value="Add Your lecture" />
+                        <div className="bg-black py-2 text-center rounded-sm"><span className="loading loading-spinner text-secondary"></span></div> : <input className="btn mt-4 hover:text-[#D9042B]  w-full bg-[#2F2F2F] text-white capitalize" type="submit" value="Upload Your Document" />
                         }
                     </div>
                 </form>

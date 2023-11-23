@@ -62,11 +62,6 @@ const NavBar = () => {
                                                     Upload
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link to="/uploadBook" className="text-[0D0D0D] hover:bg-[#D9042B] hover:text-[#FFF] px-6 py-3 rounded-md">
-                                                    Upload Book
-                                                </Link>
-                                            </li>
                                             {
                                             user &&
                                             <div className="grid grid-cols-1 lg:grid-cols-2 px-6">
