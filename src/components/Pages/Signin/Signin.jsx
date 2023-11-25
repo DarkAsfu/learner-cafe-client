@@ -1,5 +1,5 @@
 import "@lottiefiles/lottie-player";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import Social from "../../Shared/Social/Social";
@@ -7,6 +7,9 @@ import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 const Signin = () => {
     useTitle('SignIn | Learner Cafe');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/"
     const { signIn } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -17,10 +20,10 @@ const Signin = () => {
         const password = form.password.value;
         signIn(email, password)
         .then(result => {
-            const signIn = result.user;
-            console.log(signIn);
+            result.user
             setError('')
             setSuccess('Successfully login !!!')
+            navigate(from, { replace: true })
             form.reset();
         })
         .catch(error =>{

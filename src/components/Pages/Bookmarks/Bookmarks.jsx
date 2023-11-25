@@ -54,7 +54,7 @@ const Bookmarks = () => {
                         <div className="mt-20 w-11/12 mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                             {
                                 bookmarks.map(bookmark => (
-                                    <div key={bookmark._id} className="card rounded-md border shadow-md text-black">
+                                    <Link to={`/details/${bookmark.bookmarkId}`} key={bookmark._id} className="card rounded-md border shadow-md text-black">
                                         <img className="h-[200px] md:h-[340px] rounded-t-md" src={bookmark?.image} alt="img" />
                                         <div className="md:flex justify-between px-2 pt-4 py-14">
                                             <div>
@@ -66,7 +66,7 @@ const Bookmarks = () => {
                                                 <button onClick={() => handleDelete(bookmark._id)} className="p-2 rounded-md bg-[#002E3C] text-[#fff]"><FaTrash></FaTrash></button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))
                             }
                         </div>

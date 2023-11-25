@@ -7,7 +7,7 @@ import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import useTitle from "../../../hooks/useTitle";
 const Signup = () => {
     useTitle('SignUp | Learner Cafe');
-    const {user, createUser} = useContext(AuthContext);
+    const {createUser, updateInfo} = useContext(AuthContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const navigate = useNavigate();
@@ -26,7 +26,8 @@ const Signup = () => {
         createUser(email, password)
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
+            
+            updateInfo(name);
             const saveUser = {name, email: loggedUser.email, image: loggedUser.photoURL, date};
             fetch('https://learner-cafe-server.vercel.app/users', {
                 method: 'POST',

@@ -4,7 +4,7 @@ import Card from "../../../Shared/Card/Card";
 
 const PresentationCategory = () => {
     const [presentation] = usePresentation();
-    console.log(presentation);
+
     const [show, setShow] = useState(false);
     const handleShow = () =>{
         setShow(!show)

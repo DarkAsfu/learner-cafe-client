@@ -26,7 +26,7 @@ const User = () => {
                             <h1 className="text-[#0D0D0D] text-2xl font-bold uppercase font-mono"><span className="text-[#D9042B]">GUB</span>Material</h1>
                         </Link>
                         {
-                            user?.photoURL ? <img className="w-12 rounded-2xl" src={user?.photoURL}></img> : <img className="w-10" src="https://i.ibb.co/2qr381T/user-1.png"></img>
+                            user?.photoURL ? <Link to="profile"><img className="w-12 rounded-2xl" src={user?.photoURL}></img></Link> : <Link to="profile"><img className="w-10" src="https://i.ibb.co/2qr381T/user-1.png"></img></Link>
                         }
 
                     </div>

@@ -11,7 +11,7 @@ const Profile = () => {
     const [users, , refetch] = useUsers();
     const navigate = useNavigate();
     const data = users.find(singleUser => user.email == singleUser.email);
-    console.log(data);
+
     const handleSave = (e) => {
         e.preventDefault();
         const form = e.target;

@@ -65,10 +65,6 @@ const router = createBrowserRouter([
                 element: <Contact/>
             },
             {
-                path: '/uploadBook',
-                element: <UploadBooks/>
-            },
-            {
                 path: '/category/:id',
                 element: <CategoryWise/>,
                 loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/category/${params.id}`)
