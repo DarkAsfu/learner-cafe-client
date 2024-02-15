@@ -12,7 +12,7 @@ import Subjects from "./Subjects/Subjects";
 const Home = () => {
     useTitle('Home | Learner Cafe');
     return (
-        <div>
+        <div className="dark:bg-[#080808]">
             <ScrollToTop/>
             <Banner/>
             <Categories/>

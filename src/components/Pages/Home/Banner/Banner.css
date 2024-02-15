@@ -5,6 +5,14 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.bannerDark {
+    background-image: url(../Banner/green_image.jpg), linear-gradient(90deg, rgba(12,5,15,1) 0%, rgba(13,2,14,0.6363795518207283) 42%, rgba(14,2,2,0.4515056022408963) 69%);;
+    /* background-color: #000; */
+    height: 100vH;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 svg{
     transform: translateX(0%) rotateY(180deg);
 }

@@ -11,10 +11,10 @@ const LatestLecture = () => {
     }
     const documentShow = show ? alllectures : alllectures.slice(0, 4);
     return (
-        <div className="">
+        <div className="dark:bg-[#080808]">
             <div className="w-11/12 mx-auto py-14">
             <div className="">
-            <h1 className="text-[28px] text-[#0D0D0D] font-sans  uppercase font-bold"><span className="text-[#D9042B]">La</span>test Documents</h1>
+            <h1 className="text-[28px] text-[#0D0D0D]  dark:text-white font-sans  uppercase font-bold"><span className="text-[#D9042B]">La</span>test Documents</h1>
             <div className="divider"></div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">

@@ -76,11 +76,11 @@ const Details = () => {
       };
     
     return (
-        <>
+        <div className="dark:bg-[#080808]">
             <ScrollToTop />
-            <div className="mt-24 hidden z-20 h-16 w-[600px] rotate-[-40deg] rounded-3xl bg-sky-400 opacity-10 blur-2xl filter dark:hidden lg:top-24 lg:-right-28 lg:block lg:h-12 lg:w-[600px] lg:opacity-30 lg:blur-2xl xl:-right-40 xl:h-4 xl:w-[800px] xl:opacity-100"></div>
-            <div className="w-11/12 md:w-11/12 lg:w-8/12 mx-auto py-20">
-                <div className="card md:card-side rounded-none bg-base-100 border p-4">
+            <div className=" hidden z-20 h-16 w-[600px] rotate-[-40deg] rounded-3xl bg-sky-400 opacity-10 blur-2xl filter  lg:top-24 lg:-right-28 lg:block lg:h-12 lg:w-[600px] lg:opacity-30 lg:blur-2xl xl:-right-40 xl:h-4 xl:w-[800px] xl:opacity-100"></div>
+            <div className="w-11/12 md:w-11/12 lg:w-8/12 mx-auto py-20 ">
+                <div className="card md:card-side rounded-none bg-base-100 border border-1 dark:border-[#222] p-4 dark:bg-[#181718] dark:text-white">
                     <img className="h-[400px] w-[310px]" src={document.image} alt="cover-img" />
                     <div className="card-body">
                         <h2 className="card-title">{document.subName}</h2>
@@ -95,8 +95,8 @@ const Details = () => {
                         <p><span className="font-semibold">Name: </span> {document.name}</p>
                         <p><span className="font-semibold">Email:</span> {document.email}</p>
                         <div className="card-actions">{
-                            user ? <Link className="btn bg-[#002E3C] text-white" target="_blank" to={document.driveLink}>Read Now</Link> :
-                            <button className="btn bg-[#002E3C] text-white" onClick={showToast}>Read Now</button>
+                            user ? <Link className="btn bg-[#002E3C] text-white hover:text-black border-0" target="_blank" to={document.driveLink}>Read Now</Link> :
+                            <button className="btn bg-[#002E3C] text-white hover:text-black" onClick={showToast}>Read Now</button>
                         }
                             
                         </div>
@@ -104,7 +104,7 @@ const Details = () => {
                 </div>
                 <RelatedDoc category={document.category} />
             </div>
-        </>
+        </div>
     );
 };
 

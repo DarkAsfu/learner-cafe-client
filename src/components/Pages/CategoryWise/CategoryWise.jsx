@@ -7,17 +7,19 @@ const CategoryWise = () => {
     const categoriesDoc = useLoaderData();
     useTitle(`${categoriesDoc[0].category} | Learner Cafe`)
     return (
-        <div className="w-10/12 mx-auto py-24">
-            <ScrollToTop/>
-            {
-                categoriesDoc.length == 0 ? <h1 className="text-center text-2xl font-mono">No Document. It will be add</h1>:
-                <div className="grid md:grid-cols-4 gap-10">
+        <div className="dark:bg-[#080808]">
+            <div className="w-11/12 mx-auto py-24 ">
+                <ScrollToTop />
                 {
-                    categoriesDoc.map(document => <Card key={document._id} document={document}></Card>)
+                    categoriesDoc.length == 0 ? <h1 className="text-center text-2xl font-mono">No Document. It will be add</h1> :
+                        <div className="grid md:grid-cols-4 gap-10">
+                            {
+                                categoriesDoc.map(document => <Card key={document._id} document={document}></Card>)
+                            }
+                        </div>
                 }
+
             </div>
-            }
-            
         </div>
     );
 };

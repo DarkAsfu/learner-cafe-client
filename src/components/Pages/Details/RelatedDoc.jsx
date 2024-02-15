@@ -25,32 +25,39 @@ const RelatedDoc = ({ category }) => {
     }, [category, params.id, refetch]);
 
     const relatedDoc = categories.filter(c => c._id !== params.id);
-
     return (
         <div>
             {loading ? (
                 <img className="w-36" src="https://i.ibb.co/brR61WV/airplane.gif" alt="Loading" />
             ) : (
                 <div>
-                    <h1 className="text-[28px] text-[#0D0D0D] font-sans uppercase font-bold mt-10">
+                    <h1 className="text-[28px] text-[#0D0D0D] dark:text-white font-sans uppercase font-bold mt-10">
                         <span className="text-[#D9042B]">Related</span> Documents
                     </h1>
                     <div className="divider"></div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
-                        {relatedDoc.map(document => (
-                            <div key={document._id}>
-                                <Link to={`/details/${document._id}`} className="">
-                                    <div className="border py-2 h-[260px]">
-                                        <img className='h-[200px] w-[150px]' src={document.image} alt="" />
-                                        <h3 className="text-black text-[14px] font-semibold px-2 my-2">{document.subName}</h3>
+                    {
+                        relatedDoc.length > 0 ?
+                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                            {
+                                relatedDoc.map(document => (
+                                    <div key={document._id}>
+                                        <Link to={`/details/${document._id}`} className="">
+                                            <div className="border border-1 dark:border-[#222] h-[260px]">
+                                                <img className='h-[200px] ' src={document.image} alt="" />
+                                                <h3 className="text-black dark:text-white text-[14px] font-semibold px-2 my-2">{document.subName}</h3>
+                                            </div>
+                                        </Link>
                                     </div>
-                                </Link>
+                                    ))
+                            }
                             </div>
-                        ))}
-                    </div>
+                            :
+                            <div><h1 className="dark:text-white">No related document available!</h1></div>
+                    }
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };
 

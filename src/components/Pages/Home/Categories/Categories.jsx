@@ -35,9 +35,9 @@ const Categories = () => {
     ]
     return (
         <>
-            <div  className=" card shadow-xl bg-[#fff] pt-10 mt-10 xl:-mt-36 xl:w-11/12 mx-auto pb-10">
+            <div  className=" card shadow-xl bg-[#fff] dark:bg-[#181718] pt-10 mt-10 xl:-mt-36 xl:w-11/12 md:mx-auto pb-10 mx-2">
                 <div data-aos="fade-up" className="w-11/12 mx-auto">
-                    <h1 className="text-[28px] text-[#0D0D0D] font-sans  uppercase font-bold"><span className="text-[#D9042B]">all</span>Categories</h1>
+                    <h1 className="text-[28px] text-[#0D0D0D] dark:text-white font-sans  uppercase font-bold"><span className="text-[#D9042B]">all</span>Categories</h1>
                     <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-10">
                         {
                             categories.map(category => <Category key={category.id} category={category} />)

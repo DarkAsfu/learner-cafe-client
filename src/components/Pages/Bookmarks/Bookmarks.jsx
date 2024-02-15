@@ -37,7 +37,7 @@ const Bookmarks = () => {
         })
     }
     return (
-        <div className="">
+        <div className="dark:bg-[#080808] min-h-screen">
             <ScrollToTop />
             {
                 bookmarks.length === 0 ?
@@ -46,27 +46,22 @@ const Bookmarks = () => {
                         <h1 className="text-xl font-semibold font-mono text-[#505050]">No bookmarks added.</h1>
                     </div> :
                     <div className="pt-5 pb-10 md:pb-10">
-                        {/* <div className="bg-[url(https://i.ibb.co/2s9gQ8M/kaleb-tapp-J59w-WPn09-BE-unsplash.jpg)]  h-[200px] bg-center bg-cover">
-                            <div>
-                                <h1 className="text-center text-[#ffffff84] uppercase font-extrabold text-4xl md:text-6xl flex justify-center pt-24 md:pt-20">My Bookmarks</h1>
-                            </div>
-                        </div> */}
                         <div className="mt-20 w-11/12 mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                             {
                                 bookmarks.map(bookmark => (
-                                    <Link to={`/details/${bookmark.bookmarkId}`} key={bookmark._id} className="card rounded-md border shadow-md text-black">
-                                        <img className="h-[200px] md:h-[340px] rounded-t-md" src={bookmark?.image} alt="img" />
+                                    <div key={bookmark._id} className="card rounded-md border dark:border-[#222] shadow-md text-black">
+                                        <Link  to={`/details/${bookmark.bookmarkId}`}><img className="h-[200px] w-full md:h-[340px] rounded-t-md" src={bookmark?.image} alt="img" /></Link>
                                         <div className="md:flex justify-between px-2 pt-4 py-14">
                                             <div>
-                                                <h2 className="card-title text-black text-[14px] md:text-xl font-bold">{bookmark.subName}</h2>
-                                                <p className="text-black">{bookmark.topicName}</p>
+                                                <h2 className="card-title text-black dark:text-white text-[14px] md:text-xl font-bold">{bookmark.subName}</h2>
+                                                <p className="text-black dark:text-white">{bookmark.topicName}</p>
                                             </div>
                                             <div className="card-actions text-[16px] absolute bottom-4">
                                                 <Link className="bg-[#002E3C] p-2 rounded-md text-[#fff]" target="_blank" to={bookmark.driveLink}><FaEye></FaEye></Link>
                                                 <button onClick={() => handleDelete(bookmark._id)} className="p-2 rounded-md bg-[#002E3C] text-[#fff]"><FaTrash></FaTrash></button>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </div>
                                 ))
                             }
                         </div>

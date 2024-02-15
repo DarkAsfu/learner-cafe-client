@@ -92,9 +92,9 @@ const Subjects = () => {
         {subjects.map((subject) => (
           <SwiperSlide  key={subject?.id}>
             <Link to={`/subwise/${subject?.path}`}>
-            <div className='text-center py-10 card bg-[#f2f2f2] h-[170px]'>
+            <div className='text-center py-10 card bg-[#f2f2f2] dark:bg-[#181718] h-[170px]'>
               <img className='w-10 mx-auto' src={subject?.icon} alt='' />
-              <h1 className='font-semibold mt-2'>{subject?.name}</h1>
+              <h1 className='font-semibold mt-2 dark:text-white'>{subject?.name}</h1>
             </div>
             </Link>
           </SwiperSlide>
