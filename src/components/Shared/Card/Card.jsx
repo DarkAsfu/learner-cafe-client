@@ -74,9 +74,23 @@ const Card = ({ document }) => {
     const handleCopyToClipboard = async (url) => {
         const newTextToCopy = window.location.href + url;
         setTextToCopy(newTextToCopy);
-        console.log(newTextToCopy);
         try {
             await navigator.clipboard.writeText(newTextToCopy);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+              Toast.fire({
+                icon: "success",
+                title: "successfully copied to clipboard"
+              });
         } catch (err) {
             console.error('Unable to copy text to clipboard', err);
         }
@@ -106,7 +120,6 @@ const Card = ({ document }) => {
                     <button onClick={() => handleCopyToClipboard(`details/${_id}`)}>
                         <IoCopyOutline />
                     </button>
-                    
                 </div>
             </div>
         </div>
