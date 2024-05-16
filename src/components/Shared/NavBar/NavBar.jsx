@@ -28,14 +28,14 @@ const NavBar = () => {
             })
     }
     return (
-        <div className="bg-[#fff]  shadow-xl fixed top-0 left-0 right-0 z-10 ">
+        <div className="bg-[#fff] dark:bg-[#080808]  shadow-xl fixed top-0 left-0 right-0 z-10 ">
             <header>
                 <div className="relative z-20 md:w-11/12 mx-auto">
                     <div className="py-2 px-6 md:px-0">
                         <div className="flex items-center justify-between">
                             <div className="relative z-20">
                                 <Link to="/">
-                                    <h1 className="text-[#0D0D0D]  text-2xl font-bold uppercase font-mono"><span className="text-[#D9042B]">GUB</span>Material</h1>
+                                    <h1 className="text-[#0D0D0D] dark:text-white  text-2xl font-bold uppercase font-mono"><span className="text-[#D9042B]">GUB</span>Material</h1>
                                 </Link>
                             </div>
 
@@ -52,31 +52,31 @@ const NavBar = () => {
                                     <div aria-hidden="true" className="m-auto h-0.5 w-6 rounded bg-[#D9042B] transition duration-300"></div>
                                     <div aria-hidden="true" className="m-auto mt-2 h-0.5 w-6 rounded bg-[#D9042B] transition duration-300"></div>
                                 </label>
-                                <div className="bg-[#fff] peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 ">
+                                <div className="bg-white dark:bg-[#080808] md:bg-transparent peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0 ">
                                     <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
                                         <ul className="lg:flex items-center pt-32 text-[#0D0D0D] px-5 font-mono font-semibold text-[14px] space-y-4  lg:space-y-0 lg:pt-0 uppercase">
                                             <li>
-                                                <Link to='/' className="text-[0D0D0D]  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to='/' className="text-[0D0D0D] dark:text-white hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="" >Home</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/explore' className="text-[0D0D0D]  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to='/explore' className="text-[0D0D0D] dark:text-white  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Explore</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/books' className="text-[0D0D0D]  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to='/books' className="text-[0D0D0D] dark:text-white  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Books</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/contact' className="text-[0D0D0D]  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to='/contact' className="text-[0D0D0D] dark:text-white  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Contact</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/upload" className="text-[0D0D0D]  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to="/upload" className="text-[0D0D0D] dark:text-white  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     Upload
                                                 </Link>
                                             </li>

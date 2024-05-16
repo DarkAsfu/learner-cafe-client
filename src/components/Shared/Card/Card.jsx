@@ -72,7 +72,7 @@ const Card = ({ document }) => {
     }
     const [textToCopy, setTextToCopy] = useState("");
     const handleCopyToClipboard = async (url) => {
-        const newTextToCopy = window.location.href + url;
+        const newTextToCopy = window.location.origin + "/" + url;
         setTextToCopy(newTextToCopy);
         try {
             await navigator.clipboard.writeText(newTextToCopy);

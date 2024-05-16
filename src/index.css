@@ -13,3 +13,8 @@
     @apply -rotate-45 -translate-y-1;
   }
 }
+
+::selection {
+  color: white;
+  background: #002E3C;
+}
