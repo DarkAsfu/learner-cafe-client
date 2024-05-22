@@ -66,7 +66,7 @@ const NavBar = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='/books' className="text-[0D0D0D] dark:text-white  hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
+                                                <Link to='/books' className="text-[0D0D0D] dark:text-white hover:bg-[#D9042B]  hover:text-[#FFF] px-6 py-3 rounded-md">
                                                     <span className="relative " >Books</span>
                                                 </Link>
                                             </li>

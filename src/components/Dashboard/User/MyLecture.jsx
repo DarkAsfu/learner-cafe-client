@@ -84,10 +84,10 @@ const MyLecture = () => {
                                                         </div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">
-                                                        <div className="text-left text-[16px] font-semibold text-black">{report?.subName}</div>
+                                                        <div className="text-left text-[16px] font-semibold text-black">{report?.subName.slice(0, 10)}</div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">
-                                                        <div className="text-left text-[16px]  text-black">{report?.topicName}</div>
+                                                        <div className="text-left text-[16px]  text-black">{report?.topicName.slice(0,15)}...</div>
                                                     </td>
                                                     <td className="p-2 whitespace-nowrap">
                                                         <div className="text-[18px] text-center">

@@ -1,19 +1,30 @@
+import { useContext, useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import './ExploreBody.css'
+import './ExploreBody.css';
 import useLatestLecture from '../../../../hooks/useLatestLecture';
 import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../Provider/AuthProvider';
+import useLecture from '../../../../hooks/useLecture';
+import usePresentation from '../../../../hooks/usePresentation';
+import useLabReport from '../../../../hooks/useLabReport';
+
 const ExploreBody = () => {
-    const [alllectures, loading, refetch] = useLatestLecture();
-    const { user } = useContext(AuthContext)
-    const [alllecture, setAllLectures] = useState([])
-    refetch()
+    const [allLectures, loading, refetch] = useLatestLecture();
+    const [lectures] = useLecture();
+    const [presentation] = usePresentation();
+    const [labreport] = useLabReport()
+    const { user } = useContext(AuthContext);
+    const [searchResults, setSearchResults] = useState([]);
+
+    useEffect(() => {
+        refetch();
+    }, []);
+
     const handleSearch = (searchText) => {
         fetch(`https://learner-cafe-server.vercel.app/documentSearchByTopicName/${searchText}`)
             .then(res => res.json())
-            .then(data => setAllLectures(data))
+            .then(data => setSearchResults(data))
             .catch(error => console.error('Error fetching data:', error));
     }
 
@@ -21,15 +32,12 @@ const ExploreBody = () => {
         const searchText = e.target.value;
         handleSearch(searchText);
     }
-    let lecture;
-    if (alllecture.length == 0) {
-        lecture = alllectures;
-    } else {
-        lecture = alllecture
-    }
+
+    const allLectureData = searchResults.length === 0 ? allLectures : searchResults;
+
     return (
-        <section className='bg-[#000]'>
-            <div className=' mx-auto px-6 md:px-0 py-6 md:py-0' >
+        <section className='bg-[#000] py-20 md:px-20'>
+            <div className='mx-auto px-2 md:px-0  md:py-0'>
                 <Tabs className="md:flex">
                     <div className='lg:w-[25%] bg-[#100f0f] text-white md:px-20 md:py-10 text-center px-3'>
                         <TabList className="grid grid-cols-3 md:grid-cols-1 py-2">
@@ -37,7 +45,6 @@ const ExploreBody = () => {
                             <Tab className="border-0 mt-3 md:mt-10">Lecture</Tab>
                             <Tab className="border-0 mt-3 md:mt-10">Presentation</Tab>
                             <Tab className="border-0 mt-3 md:mt-10">Lab Report</Tab>
-                            <Tab className="border-0 mt-3 md:mt-10">Slide</Tab>
                         </TabList>
                     </div>
                     <div className='lg:w-[75%]'>
@@ -82,9 +89,8 @@ const ExploreBody = () => {
                                                         </tr>
                                                     </thead>
                                                     <tbody className="text-sm divide-y divide-gray-100 dark:divide-[#222]">
-
                                                         {loading ? <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" /> :
-                                                            lecture.map(report => (
+                                                            allLectureData.map(report => (
                                                                 <tr key={report._id}>
                                                                     <td className="p-2 whitespace-nowrap">
                                                                         <img className='w-12' src={report?.image} alt="cover-img" />
@@ -108,7 +114,6 @@ const ExploreBody = () => {
                                                                 </tr>
                                                             ))
                                                         }
-
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -118,16 +123,184 @@ const ExploreBody = () => {
                             </section>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 5</h2>
+                            <section className="px-2 md:px-10 bg-gray-100 dark:bg-[#0c0c0c] text-gray-600 py-10">
+                                <div className="flex flex-col justify-center h-full">
+                                    <div className="w-full mx-auto bg-white dark:bg-[#080808] shadow-lg rounded-sm border border-gray-200 dark:border-[#222]">
+                                        <div className="p-3">
+                                            <div className="overflow-x-auto">
+                                                <table className="table-auto w-full">
+                                                    <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                                        <tr>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Cover</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Subject</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Author</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Topic Name</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-center">Action</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="text-sm divide-y divide-gray-100 dark:divide-[#222]">
+                                                        {loading ? <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" /> :
+                                                            lectures.map(report => (
+                                                                <tr key={report._id}>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <img className='w-12' src={report?.image} alt="cover-img" />
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px] font-semibold text-black dark:text-white">{report?.subName.slice(0, 25)}..</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="">
+                                                                            <div className="font-medium text-gray-800 dark:text-[#f8f8f8]">{report?.name}</div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px]  text-black dark:text-white">{report?.topicName.slice(0, 10)}...</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-[18px] text-center">
+                                                                            <Link className='text-[14px] text-[#D9042B] bg-[#ffb0b0] font-bold px-3 py-2 rounded-md' to={user ? report?.driveLink : '/signin'}>Download</Link>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 5</h2>
+                            <section className="px-2 md:px-10 bg-gray-100 dark:bg-[#0c0c0c] text-gray-600 py-10">
+                                <div className="flex flex-col justify-center h-full">
+                                    <div className="w-full mx-auto bg-white dark:bg-[#080808] shadow-lg rounded-sm border border-gray-200 dark:border-[#222]">
+                                        <div className="p-3">
+                                            <div className="overflow-x-auto">
+                                                <table className="table-auto w-full">
+                                                    <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                                        <tr>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Cover</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Subject</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Author</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Topic Name</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-center">Action</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="text-sm divide-y divide-gray-100 dark:divide-[#222]">
+                                                        {loading ? <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" /> :
+                                                            presentation.map(report => (
+                                                                <tr key={report._id}>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <img className='w-12' src={report?.image} alt="cover-img" />
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px] font-semibold text-black dark:text-white">{report?.subName.slice(0, 25)}..</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="">
+                                                                            <div className="font-medium text-gray-800 dark:text-[#f8f8f8]">{report?.name}</div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px]  text-black dark:text-white">{report?.topicName.slice(0, 10)}...</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-[18px] text-center">
+                                                                            <Link className='text-[14px] text-[#D9042B] bg-[#ffb0b0] font-bold px-3 py-2 rounded-md' to={user ? report?.driveLink : '/signin'}>Download</Link>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 4</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 5</h2>
+                            <section className="px-2 md:px-10 bg-gray-100 dark:bg-[#0c0c0c] text-gray-600 py-10">
+                                <div className="flex flex-col justify-center h-full">
+                                    <div className="w-full mx-auto bg-white dark:bg-[#080808] shadow-lg rounded-sm border border-gray-200 dark:border-[#222]">
+                                        <div className="p-3">
+                                            <div className="overflow-x-auto">
+                                                <table className="table-auto w-full">
+                                                    <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                                        <tr>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Cover</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Subject</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Author</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-left">Topic Name</div>
+                                                            </th>
+                                                            <th className="p-2 whitespace-nowrap">
+                                                                <div className="font-semibold text-center">Action</div>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody className="text-sm divide-y divide-gray-100 dark:divide-[#222]">
+                                                        {loading ? <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" /> :
+                                                            labreport.map(report => (
+                                                                <tr key={report._id}>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <img className='w-12' src={report?.image} alt="cover-img" />
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px] font-semibold text-black dark:text-white">{report?.subName.slice(0, 25)}..</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="">
+                                                                            <div className="font-medium text-gray-800 dark:text-[#f8f8f8]">{report?.name}</div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-left text-[16px]  text-black dark:text-white">{report?.topicName.slice(0, 10)}...</div>
+                                                                    </td>
+                                                                    <td className="p-2 whitespace-nowrap">
+                                                                        <div className="text-[18px] text-center">
+                                                                            <Link className='text-[14px] text-[#D9042B] bg-[#ffb0b0] font-bold px-3 py-2 rounded-md' to={user ? report?.driveLink : '/signin'}>Download</Link>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            ))
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </TabPanel>
                     </div>
                 </Tabs>

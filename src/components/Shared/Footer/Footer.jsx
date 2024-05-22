@@ -17,7 +17,9 @@ const Footer = () => {
                 <aside className="flex justify-between w-11/12 mx-auto">
                     <p className="font-mono text-[14px] text-[#b4bbd1]">Copyright © 2023 <span className="">GUB MATERIAL</span></p>
                     <p className="flex items-center">
-                        <FaLinkedin className='rotate-[-270] text-[28px] border-r pr-2 text-[#b4bbd1]'></FaLinkedin>
+                        <Link to='https://bd.linkedin.com/in/ashrafulislamm' target='_blank'>
+                            <FaLinkedin className='rotate-[-270] text-[28px] border-r pr-2 text-[#b4bbd1]'></FaLinkedin>
+                        </Link>
                         <FaTwitter className='text-[28px] pr-2 text-[#b4bbd1]'></FaTwitter>
 
                     </p>

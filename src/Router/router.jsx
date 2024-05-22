@@ -94,7 +94,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'setDocSatus',
-                element: <SetDocStatus/>
+                element: <AdminRoute><SetDocStatus/></AdminRoute>
             },
             // user
             {
