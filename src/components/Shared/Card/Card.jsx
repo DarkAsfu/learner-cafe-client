@@ -6,11 +6,14 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useBookmarks from "../../../hooks/useBookmarks";
 import { IoCopyOutline } from "react-icons/io5";
+import Modal from 'react-modal';
+import { AiOutlineClose } from "react-icons/ai";
 const Card = ({ document }) => {
-    const { _id, subName, subCode, topicName, name, date, category, description, driveLink, email, image } = document
+    const { _id, subName, subCode, topicName, name, date, category, description, driveLink, email, image } = document;
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [, , refetch] = useBookmarks();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const showToast = () => {
         const Toast = Swal.mixin({
@@ -20,19 +23,18 @@ const Card = ({ document }) => {
             timer: 3000,
             timerProgressBar: true,
             didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
             }
-        })
+        });
 
         Toast.fire({
             icon: 'success',
             title: 'You have to log in first to see the document and download'
-        })
-    }
+        });
+    };
 
     const handleBookmark = () => {
-        // console.log(document);
         if (user && user?.email) {
             const bookmark = { bookmarkId: _id, subName, image, subCode, topicName, category, description, driveLink, authorName: name, email: user?.email, authorEmail: email };
             fetch('https://learner-cafe-server.vercel.app/bookmarks', {
@@ -49,12 +51,11 @@ const Card = ({ document }) => {
                             'Welcome!',
                             'Bookmark Added!',
                             'success'
-                        )
+                        );
                         refetch();
                     }
-                })
-        }
-        else {
+                });
+        } else {
             Swal.fire({
                 title: 'Please login first',
                 icon: 'warning',
@@ -63,13 +64,13 @@ const Card = ({ document }) => {
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Login now'
             }).then((result) => {
-                console.log(result);
                 if (result.isConfirmed) {
-                    navigate('/signin')
+                    navigate('/signin');
                 }
-            })
+            });
         }
-    }
+    };
+
     const [textToCopy, setTextToCopy] = useState("");
     const handleCopyToClipboard = async (url) => {
         const newTextToCopy = window.location.origin + "/" + url;
@@ -95,7 +96,21 @@ const Card = ({ document }) => {
             console.error('Unable to copy text to clipboard', err);
         }
     };
-    // http://localhost:5000/lectures/6537e67c6ebeeac8053f6439
+
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
+
+    // Format the Drive link to the preview URL
+    const getDrivePreviewLink = (link) => {
+        const fileId = link.match(/[-\w]{25,}/);
+        return fileId ? `https://drive.google.com/file/d/${fileId[0]}/preview` : link;
+    };
+
     return (
         <div data-aos="fade-up" className="card border border-1 dark:border-[#222] rounded-md shadow-md bg-[#fff] dark:bg-[#181718] dark:text-white">
             <img className="rounded-t-md h-[330px] w-full " src={image} alt="cover img" />
@@ -110,13 +125,24 @@ const Card = ({ document }) => {
                     <p className="text-[#09212E] font-mono text-[14px] font-bold mb-4 dark:text-white">{date}</p>
                 </div>
                 <div className="flex items-center mb-4 gap-3 text-[16px] text-[#D9042B] dark:text-white">
-                    <button id="btn" aria-label="Bookmark" onClick={() => handleBookmark()}><FaBookmark></FaBookmark></button>
+                    <button id="btn" aria-label="Bookmark" onClick={() => handleBookmark()}><FaBookmark /></button>
                     {
                         user ?
-                            <Link target="_blank" to={driveLink}><FaDownload></FaDownload></Link>
-                            : <Link onClick={showToast} to='/signin'><FaDownload></FaDownload></Link>
+                            <>
+                                <button onClick={openModal}><FaDownload /></button>
+                                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="PDF Viewer" className="mt-[70px] px-6">
+                                    <button className="bg-white text-[#D9042B] text-xl p-2 rounded-xl relative top-14 left-3 md:left-[28%]" onClick={closeModal}><AiOutlineClose /></button>
+                                    <iframe
+                                        src={getDrivePreviewLink(driveLink)}
+                                        title="PDF Viewer"
+                                        style={{ border: 'none', margin: '0 auto' }}
+                                        className="h-[450px] md:h-[80vh] w-full md:w-[50%]"
+                                    />
+                                </Modal>
+                            </>
+                            : <Link onClick={showToast} to='/signin'><FaDownload /></Link>
                     }
-                    <Link to={`/details/${_id}`}><HiInformationCircle></HiInformationCircle></Link>
+                    <Link to={`/details/${_id}`}><HiInformationCircle /></Link>
                     <button onClick={() => handleCopyToClipboard(`details/${_id}`)}>
                         <IoCopyOutline />
                     </button>
