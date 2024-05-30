@@ -73,6 +73,10 @@ const router = createBrowserRouter([
                 path: '/details/:id',
                 element: <Details/>,
                 // loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/${params.id}`)
+            },
+            {
+                path: '*',
+                element: <h1 className="flex justify-center align-middle my-[25%]">404 page not found back to <Link className="text-blue-600" to='/'>Home</Link></h1>
             }
         ]
     },
@@ -112,10 +116,7 @@ const router = createBrowserRouter([
             }
         ]
     },
-    {
-        path: '*',
-        element: <h1 className="flex justify-center align-middle mt-48">404 page not found back to <Link className="text-blue-600" to='/'>Home</Link></h1>
-    }
+    
 ]);
 
 export default router

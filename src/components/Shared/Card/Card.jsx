@@ -84,14 +84,14 @@ const Card = ({ document }) => {
                 timer: 1000,
                 timerProgressBar: false,
                 didOpen: (toast) => {
-                  toast.onmouseenter = Swal.stopTimer;
-                  toast.onmouseleave = Swal.resumeTimer;
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
                 }
-              });
-              Toast.fire({
+            });
+            Toast.fire({
                 icon: "success",
                 title: "successfully copied to clipboard"
-              });
+            });
         } catch (err) {
             console.error('Unable to copy text to clipboard', err);
         }
@@ -108,8 +108,22 @@ const Card = ({ document }) => {
     // Format the Drive link to the preview URL
     const getDrivePreviewLink = (link) => {
         const fileId = link.match(/[-\w]{25,}/);
-        return fileId ? `https://drive.google.com/file/d/${fileId[0]}/preview` : link;
+        return fileId && `https://drive.google.com/file/d/${fileId[0]}/preview`;
     };
+
+    const drivePreviewLink = getDrivePreviewLink(driveLink);
+
+    // Handle invalid link scenario
+    if (!drivePreviewLink && modalIsOpen) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Link',
+            text: 'The document link is invalid or not accessible.'
+        }).then(() => {
+            setModalIsOpen(false);
+            navigate('/');
+        });
+    }
 
     return (
         <div data-aos="fade-up" className="card border border-1 dark:border-[#222] rounded-md shadow-md bg-[#fff] dark:bg-[#181718] dark:text-white">
@@ -132,12 +146,17 @@ const Card = ({ document }) => {
                                 <button onClick={openModal}><FaDownload /></button>
                                 <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="PDF Viewer" className="mt-[70px] px-6">
                                     <button className="bg-white text-[#D9042B] text-xl p-2 rounded-xl relative top-14 left-3 md:left-[28%]" onClick={closeModal}><AiOutlineClose /></button>
-                                    <iframe
-                                        src={getDrivePreviewLink(driveLink)}
-                                        title="PDF Viewer"
-                                        style={{ border: 'none', margin: '0 auto' }}
-                                        className="h-[450px] md:h-[80vh] w-full md:w-[50%]"
-                                    />
+                                    {
+                                        drivePreviewLink ? (
+                                            <iframe
+                                                src={getDrivePreviewLink(driveLink)}
+                                                title="PDF Viewer"
+                                                style={{ border: 'none', margin: '0 auto' }}
+                                                className="h-[450px] md:h-[80vh] w-full md:w-[50%]"
+                                            />
+                                        ) :
+                                        <p>Link is invalid</p>
+                                    }
                                 </Modal>
                             </>
                             : <Link onClick={showToast} to='/signin'><FaDownload /></Link>
