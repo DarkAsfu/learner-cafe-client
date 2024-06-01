@@ -21,6 +21,8 @@ import CategoryWise from "../components/Pages/CategoryWise/CategoryWise";
 import SetDocStatus from "../components/Dashboard/Admin/setDocStatus";
 import Details from "../components/Pages/Details/Details";
 import PrivateRouter from "./PrivateRouter";
+import BlogUpload from "../components/Pages/Blogs/BlogUpload";
+import Blogs from "../components/Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +77,10 @@ const router = createBrowserRouter([
                 // loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/lectures/${params.id}`)
             },
             {
+                path: '/blogs',
+                element: <Blogs/>
+            },
+            {
                 path: '*',
                 element: <h1 className="flex justify-center align-middle my-[25%]">404 page not found back to <Link className="text-blue-600" to='/'>Home</Link></h1>
             }
@@ -99,6 +105,10 @@ const router = createBrowserRouter([
             {
                 path: 'setDocSatus',
                 element: <AdminRoute><SetDocStatus/></AdminRoute>
+            },
+            {
+                path: 'blogs',
+                element: <BlogUpload/>
             },
             // user
             {
