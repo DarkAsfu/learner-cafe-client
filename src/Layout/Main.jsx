@@ -6,7 +6,7 @@ const Main = () => {
     return (
         <>
             <Loading />
-            <div>
+            <div className="">
                 <div className="mb-12">
                     <NavBar></NavBar>
                 </div>
