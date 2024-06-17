@@ -5,7 +5,7 @@ const AllUsers = () => {
     const [users] = useUsers();
     return (
         <section>
-            <div className="container">
+            <div className="container grid-cols-1 sm:grid-cols-2 grid md:grid-cols-3 lg:grid-cols-4">
                 {
                     users.map(user => (
                         <div className="card" key={user._id}>

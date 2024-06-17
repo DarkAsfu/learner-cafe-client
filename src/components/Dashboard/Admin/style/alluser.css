@@ -1,11 +1,11 @@
 .container{
     position: relative;
     z-index: 1;
-    /* display: flex; */
+    /* display: flex;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     flex-wrap: wrap;
     margin: 40px 0;
     /* background-color: #161623; */
