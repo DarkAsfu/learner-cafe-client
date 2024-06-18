@@ -3,27 +3,44 @@ import JoditEditor from 'jodit-react';
 import Swal from "sweetalert2";
 import moment from 'moment/moment';
 import { AuthContext } from '../../../Provider/AuthProvider';
+
 const BlogUpload = () => {
     const editor = useRef(null);
     const [title, setTitle] = useState('');
     const [coverImage, setCoverImage] = useState('');
     const [content, setContent] = useState('');
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
+    const [buttonLoading, setButtonLoading] = useState(false);
+
     const config = useMemo(() => ({
-        readonly: false, // all options from https://xdsoft.net/jodit/docs/,
+        readonly: false,
         placeholder: 'Start typing...',
-        direction: 'ltr' // Ensure direction is set to 'ltr' if not using RTL
+        direction: 'ltr'
     }), []);
+
     console.log(user);
+
     const blog = {
         title,
         coverImage,
         content,
-        date:moment().format('llll'),
+        date: moment().format('llll'),
         publisher_name: user?.displayName,
         publisher_img: user?.photoURL,
     }
+
     const blogUpload = () => {
+        if (!title || !coverImage || !content) {
+            Swal.fire(
+                'Error',
+                'All fields are required',
+                'error'
+            );
+            return;
+        }
+
+        setButtonLoading(true);
+
         fetch('https://learner-cafe-server.vercel.app/blogs', {
             method: 'POST',
             headers: {
@@ -31,18 +48,24 @@ const BlogUpload = () => {
             },
             body: JSON.stringify(blog)
         })
-            .then(res => res.json()) // Parse the response as JSON
+            .then(res => res.json())
             .then(data => {
                 console.log(data);
                 Swal.fire(
                     'Thank you!',
-                    'Successfully post your blog',
+                    'Successfully posted your blog',
                     'success'
-                )
-            }
-            )
+                );
+                setButtonLoading(false);
+            })
             .catch(e => {
                 console.log(e.message);
+                Swal.fire(
+                    'Error',
+                    'There was an error posting your blog',
+                    'error'
+                );
+                setButtonLoading(false);
             });
     };
 
@@ -61,25 +84,31 @@ const BlogUpload = () => {
                     <div className="label">
                         <span className="label-text text-md font-semibold">Blog Title</span>
                     </div>
-                    <input type="text" onChange={e => setTitle(e.target.value)} placeholder="Write your blog title" name="title" className="input input-bordered w-full" />
+                    <input type="text" required onChange={e => setTitle(e.target.value)} placeholder="Write your blog title" name="title" className="input input-bordered w-full" />
                 </label>
                 <label className="form-control w-full mb-4">
                     <div className="label">
                         <span className="label-text text-md font-semibold">Image link</span>
                     </div>
-                    <input type="text" onChange={e => setCoverImage(e.target.value)} placeholder="Insert blog cover image link" name="cover-image" className="input input-bordered w-full" />
+                    <input type="text" required onChange={e => setCoverImage(e.target.value)} placeholder="Insert blog cover image link" name="cover-image" className="input input-bordered w-full" />
                 </label>
                 <JoditEditor
                     ref={editor}
                     value={content}
                     config={config}
-                    tabIndex={1} // tabIndex of textarea
-                    onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                    tabIndex={1}
+                    onBlur={newContent => setContent(newContent)}
                     onChange={newContent => setContent(newContent)}
                 />
-                <button className='text-white bg-green-500  px-10 py-4 text-center mt-4 rounded-md' onClick={blogUpload}>Upload</button>
+                <button
+                    className={`text-white bg-green-500 px-10 py-4 text-center mt-4 rounded-md flex gap-2 ${buttonLoading ? 'cursor-not-allowed opacity-50' : ''}`}
+                    onClick={blogUpload}
+                    disabled={buttonLoading}
+                >
+                    <span className={`loading loading-spinner ${buttonLoading ? 'block' : 'hidden'}`}></span>
+                    Upload
+                </button>
             </div>
-
         </>
     );
 };
