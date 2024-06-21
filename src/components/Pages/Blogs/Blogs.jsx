@@ -1,6 +1,8 @@
 // import parse from 'html-react-parser';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { LuExternalLink } from "react-icons/lu";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
@@ -11,7 +13,8 @@ const Blogs = () => {
     console.log(blogs);
     return (
         <div className='min-h-screen'>
-            <div className="mt-32 mb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+            <ScrollToTop/>
+            <div className="mt-32 mb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 hover">
                 {/* {
                 blogs.map(blog => <div key={blog._id} className="card bg-base-100 rounded-none border gap-4 mb-10 overflow-auto">
                 <div className="card-body">
@@ -21,9 +24,12 @@ const Blogs = () => {
             } */}
                 {   
                     blogs.length>0 ? 
-                    blogs.map(blog => <div key={blog._id} className='border p-2 card shadow-md overflow-auto flex flex-col bg-[#F8F9FA]'>
-                        <div className="img rounded-full">
+                    blogs.map(blog => <div key={blog._id} className={`border p-2 card shadow-md overflow-auto flex flex-col bg-[#F8F9FA] relative group transition-all`} >
+                        <div className="img rounded-full flex justify-between">
                             <img className='rounded-full w-8' src={blog.publisher_img ? blog.publisher_img : "https://daily-now-res.cloudinary.com/image/upload/t_logo,f_auto/v1628412854/logos/freecodecamp"} alt="" />
+                            <Link to={blog._id} className="btn bg-black text-white  btn-sm capitalize hover:drop-shadow-lg
+                            hover:shadow-black
+                            hover:bg-black hidden group-hover:flex items-center transition-all" type="button">Read Post <LuExternalLink className="rotate-1 text-lg" /></Link>
                         </div>
                         <h3 className='text-[20px] leading-7 font-bold text-[#0E1217]'>{blog?.title}</h3>
                         <p className='text-[#525866] text-[13px] leading-[18px] mb-1'>{blog.date}</p>

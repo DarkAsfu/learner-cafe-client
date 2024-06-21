@@ -23,6 +23,7 @@ import Details from "../components/Pages/Details/Details";
 import PrivateRouter from "./PrivateRouter";
 import BlogUpload from "../components/Pages/Blogs/BlogUpload";
 import Blogs from "../components/Pages/Blogs/Blogs";
+import BlogDetails from "../components/Pages/Blogs/BlogDetails";
 
 const router = createBrowserRouter([
     {
@@ -79,6 +80,11 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs/>
+            },
+            {
+                path: '/blogs/:id',
+                element: <BlogDetails/>,
+                loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '*',
