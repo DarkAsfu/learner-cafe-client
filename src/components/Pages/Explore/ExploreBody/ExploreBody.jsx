@@ -93,7 +93,7 @@ const ExploreBody = () => {
                                                             allLectureData.map(report => (
                                                                 <tr key={report._id}>
                                                                     <td className="p-2 whitespace-nowrap">
-                                                                        <img className='w-12' src={report?.image} alt="cover-img" />
+                                                                        <img className='w-12 h-8' src={report?.image} alt="cover-img" />
                                                                     </td>
                                                                     <td className="p-2 whitespace-nowrap">
                                                                         <div className="text-left text-[16px] font-semibold text-black dark:text-white">{report?.subName.slice(0, 25)}..</div>

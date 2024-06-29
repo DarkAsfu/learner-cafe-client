@@ -15,7 +15,7 @@ const Footer = () => {
             <hr className="Footer_separator__eUnAb" />
             <footer className="footer py-4 text-center">
                 <aside className="flex justify-between w-11/12 mx-auto">
-                    <p className="font-mono text-[14px] text-[#b4bbd1]">Copyright © 2023 <span className="">GUB MATERIAL Developed by Ashraful Islam</span></p>
+                    <p className="font-mono text-[14px] text-[#b4bbd1]">Copyright © 2023-2024 <span className="">LEARNER CAFE Developed by <Link className='font-bold' to='https://github.com/Darkasfu' target='_blank'>Ashraful Islam</Link></span></p>
                     <p className="flex items-center">
                         <Link to='https://bd.linkedin.com/in/ashrafulislamm' target='_blank'>
                             <FaLinkedin className='rotate-[-270] text-[28px] border-r pr-2 text-[#b4bbd1]'></FaLinkedin>

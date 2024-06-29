@@ -12,9 +12,9 @@ const Blogs = () => {
     }, [])
     console.log(blogs);
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen dark:bg-black'>
             <ScrollToTop/>
-            <div className="mt-32 mb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 hover">
+            <div className="pt-28 pb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 hover">
                 {/* {
                 blogs.map(blog => <div key={blog._id} className="card bg-base-100 rounded-none border gap-4 mb-10 overflow-auto">
                 <div className="card-body">

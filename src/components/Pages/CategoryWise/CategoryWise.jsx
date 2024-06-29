@@ -5,7 +5,7 @@ import useTitle from "../../../hooks/useTitle";
 
 const CategoryWise = () => {
     const categoriesDoc = useLoaderData();
-    useTitle(`${categoriesDoc[0].category} | Learner Cafe`)
+    useTitle(`${categoriesDoc[0].category} | Learner Cafe`);
     return (
         <div className="dark:bg-[#080808]">
             <div className="w-11/12 mx-auto py-24 ">

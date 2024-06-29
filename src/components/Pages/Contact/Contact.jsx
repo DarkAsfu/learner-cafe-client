@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <div>
             <ScrollToTop/>
-            <div className="bg-[url(https://i.ibb.co/XbbVhr7/contact.jpg)]  h-[200px] bg-center bg-cover z-50">
+            <div className="bg-[#002E3C]  h-[200px] bg-center bg-cover z-50">
                 <div>
                     <h1 className="text-center text-[#ffffff84] uppercase font-extrabold text-4xl md:text-6xl flex justify-center pt-24 md:pt-20">Contact Us</h1>
                 </div>
