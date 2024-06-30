@@ -11,10 +11,6 @@ const Upload = () => {
     useTitle('Upload Document | Learner Cafe');
     const [activeTab, setActiveTab] = useState(0);
 
-    // Add a click handler to remove focus
-    const handleClickOutsideTab = () => {
-        setActiveTab(-1);
-    };
     return (
         <>
             <ScrollToTop />
