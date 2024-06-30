@@ -18,20 +18,21 @@ const Upload = () => {
     return (
         <>
             <ScrollToTop />
-            <div onClick={handleClickOutsideTab}  className="hidden z-20 -mt-8 w-[600px] rotate-[-40deg] rounded-3xl bg-sky-400 opacity-10 blur-2xl filter dark:hidden  lg:top-24 lg:-right-28 lg:block lg:h-12 lg:w-[600px] lg:opacity-30 lg:blur-2xl xl:-right-40 xl:h-4 xl:w-[800px] xl:opacity-100"></div>
+            <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div></div>
 
-            <Tabs className="bg-[#2f2f2f] pt-20 pb-2 md:py-20 text-center text-white" selectedIndex={activeTab}
+            <div className="fixed -z-20 h-full w-full bg-black hidden dark:block"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div></div>
+            <Tabs className="pt-20 pb-2 md:py-20 text-center text-white" selectedIndex={activeTab}
                 onSelect={(index) => setActiveTab(index)}>
-                <TabList className="border-0">
-                    <Tab className="custom-tab">Upload Document</Tab>
-                    <Tab className="custom-tab">Upload Book</Tab>
+                <TabList className="bg-[#f2f2f2] max-w-max mx-auto rounded-full p-1">
+                    <Tab className="custom-tab bg-[#686868] rounded-full mr-1">Upload Document</Tab>
+                    <Tab className="custom-tab bg-[#686868] rounded-full">Upload Book</Tab>
                 </TabList>
 
                 <TabPanel>
                     <UploadForm />
                 </TabPanel>
                 <TabPanel>
-                    <UploadBooks/>
+                    <UploadBooks />
                 </TabPanel>
             </Tabs>
         </>

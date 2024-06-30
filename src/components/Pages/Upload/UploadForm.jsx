@@ -117,6 +117,7 @@ const UploadForm = () => {
                                 <option value="suggestion">Suggestion</option>
                                 <option value="labreport">Lab Report</option>
                                 <option value="slide">Slide</option>
+                                <option value="project">Project</option>
                             </select>
 
                         </div>
