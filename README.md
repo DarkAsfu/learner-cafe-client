@@ -1,6 +1,6 @@
-# GUB Material - Your Ultimate Educational Hub
+# Learner Cafe - Your Ultimate Educational Hub
 
-Welcome to GUB Material, an innovative and user-friendly educational platform designed to empower both learners and educators. This README.md file provides a comprehensive guide to help you navigate through the features and functionalities of our website.
+Welcome to Learner Cafe, an innovative and user-friendly educational platform designed to empower both learners and educators. This README.md file provides a comprehensive guide to help you navigate through the features and functionalities of our website.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -102,6 +102,6 @@ Have questions or suggestions? Reach out to us using the contact form available 
 
 ## Live Demo
 
-Visit the live demo of GUB Material at [https://learner-cafe.web.app/](https://learner-cafe.web.app/) and start your educational journey today!
+Visit the live demo of Learner Cafe at [https://learner-cafe.web.app/](https://learner-cafe.web.app/) and start your educational journey today!
 
-Feel free to contribute to the project and make GUB Material even more awesome!
+Feel free to contribute to the project and make Learner Cafe even more awesome!
