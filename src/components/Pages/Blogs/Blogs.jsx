@@ -2,34 +2,90 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LuExternalLink } from "react-icons/lu";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
+
 const Blogs = () => {
+    document.title = "Blog | Learner Cafe";
     const [blogs, setBlogs] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const value = e.target.value.toLowerCase();
+        setSearchText(value);
+        setFilteredBlogs(
+            blogs.filter(blog =>
+                (blog.title && blog.title.toLowerCase().includes(value)) ||
+                (blog.publisher_name && blog.publisher_name.toLowerCase().includes(value))
+            )
+        );
+    };
+
     useEffect(() => {
         fetch('https://learner-cafe-server.vercel.app/blogs')
             .then(res => res.json())
-            .then(blogs => setBlogs(blogs))
-    }, [])
+            .then(blogs => {
+                setBlogs(blogs);
+                setFilteredBlogs(blogs);
+                setLoading(false);
+            });
+    }, []);
+
+    useEffect(() => {
+        if (searchText === '') {
+            setFilteredBlogs(blogs);
+        } else {
+            setFilteredBlogs(
+                blogs.filter(blog =>
+                    (blog.title && blog.title.toLowerCase().includes(searchText)) ||
+                    (blog.publisher_name && blog.publisher_name.toLowerCase().includes(searchText))
+                )
+            );
+        }
+    }, [searchText, blogs]);
+
     return (
         <>
-            <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div></div>
-            <div className="fixed h-full w-full bg-slate-950 dark:block hidden"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div></div>
+            <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden">
+                <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
+            </div>
+            <div className="fixed h-full w-full bg-slate-950 dark:block hidden">
+                <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
+            </div>
             <div className='min-h-screen'>
                 <ScrollToTop />
-                <div className="pt-28 pb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 hover">
-                    {
-                        blogs.length > 0 ?
-                            blogs.map(blog => <div key={blog._id} className={`border p-2 card shadow-md overflow-auto flex flex-col bg-[#F8F9FA] relative group transition-all`} >
+                <div className="text-center text-3xl md:text-5xl font-bold mt-32 flex flex-col">
+                    Explore Topics
+                    <form className="mt-7">
+                        <input
+                            type="text"
+                            placeholder="Search all topics"
+                            name="searchBlog"
+                            value={searchText}
+                            onChange={handleSearch}
+                            className="input input-bordered input-accent bg-[#F9F9F9] border-white font-sans rounded-full md:py-[30px] placeholder-[#686868] pr-32 md:pr-96"
+                        />
+                    </form>
+                </div>
+
+                <div className="pt-14 pb-14 w-10/12 md:w-9/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 hover">
+                    {loading ? (
+                        <div className="col-span-full text-center">
+                            <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="Loading" />
+                        </div>
+                    ) : filteredBlogs.length > 0 ? (
+                        filteredBlogs.map(blog => (
+                            <div key={blog._id} className="border p-2 card shadow-md overflow-auto flex flex-col bg-[#F8F9FA] relative group transition-all">
                                 <div className="img rounded-full flex justify-between">
                                     <img className='rounded-full w-8' src={blog.publisher_img ? blog.publisher_img : "https://i.ibb.co/2qr381T/user-1.png"} alt="" />
-                                    <Link to={blog._id} className="btn bg-black text-white  btn-sm capitalize hover:drop-shadow-lg
-                            hover:shadow-black
-                            hover:bg-black hidden group-hover:flex items-center transition-all" type="button">Read Post <LuExternalLink className="rotate-1 text-lg" /></Link>
+                                    <Link to={blog._id} className="btn bg-black text-white  btn-sm capitalize hover:drop-shadow-lg hover:shadow-black hover:bg-black hidden group-hover:flex items-center transition-all" type="button">Read Post <LuExternalLink className="rotate-1 text-lg" /></Link>
                                 </div>
                                 <h3 className='text-[20px] leading-7 font-bold text-[#0E1217]'>{blog?.title}</h3>
                                 <p className='text-[#525866] text-[13px] leading-[18px] mb-1'>{blog.date}</p>
                                 <img className='rounded-lg my-2 mt-auto md:h-[150px]' src={blog.coverImage} alt="" />
                                 <div className='flex justify-between items-center p-2 mt-auto'>
-                                    <Link>
+                                <Link>
                                         <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 p-1 hover:bg-[#39e58c41] hover:text-[#39e58c] rounded-md transition-all"><path d="M9.456 4.216l-5.985 7.851c-.456.637-.583 1.402-.371 2.108l.052.155a2.384 2.384 0 002.916 1.443l2.876-.864.578 4.042a2.384 2.384 0 002.36 2.047h.234l.161-.006a2.384 2.384 0 002.2-2.041l.576-4.042 2.877.864a2.384 2.384 0 002.625-3.668L14.63 4.33a3.268 3.268 0 00-5.174-.115zm3.57.613c.16.114.298.253.411.411l5.897 7.736a.884.884 0 01-.973 1.36l-3.563-1.069a.884.884 0 00-1.129.722l-.678 4.75a.884.884 0 01-.875.759h-.234a.884.884 0 01-.875-.76l-.679-4.75a.884.884 0 00-1.128-.72l-3.563 1.068a.884.884 0 01-.973-1.36L10.56 5.24a1.767 1.767 0 012.465-.41z" fill="currentcolor" fillRule="evenodd"></path></svg>
                                     </Link>
                                     <Link>
@@ -42,12 +98,13 @@ const Blogs = () => {
                                         <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 p-1 hover:bg-[#c029f052] hover:text-[#ac1de4] rounded-md transition-all"><path d="M13.2 4.096a3.743 3.743 0 015.148-.137l.144.137 1.412 1.412a3.743 3.743 0 01.137 5.148l-.137.144-4.023 4.023a3.743 3.743 0 01-5.148.137l-.144-.137-.706-.706a.749.749 0 01.982-1.125l.076.067.706.705c.84.84 2.181.876 3.063.105l.113-.105 4.022-4.022c.84-.84.876-2.181.105-3.064l-.105-.112-1.411-1.411a2.246 2.246 0 00-3.063-.105l-.113.105L13.2 6.213a.749.749 0 01-1.126-.982l.067-.076L13.2 4.096zM8.119 9.177a3.743 3.743 0 015.148-.137l.144.137.706.706a.749.749 0 01-.982 1.125l-.076-.067-.706-.705a2.246 2.246 0 00-3.063-.105l-.113.105-4.022 4.022a2.246 2.246 0 00-.105 3.064l.105.112 1.411 1.411c.84.84 2.181.876 3.063.105l.113-.105 1.058-1.058a.749.749 0 011.126.982l-.067.076-1.059 1.059a3.743 3.743 0 01-5.148.137l-.144-.137-1.412-1.412a3.743 3.743 0 01-.137-5.148l.137-.144L8.12 9.177z" fill="currentcolor" fillRule="evenodd"></path></svg>
                                     </Link>
                                 </div>
-                            </div>) :
-                            <div className="">
-                                <img src="https://i.ibb.co/qJzzZWj/j-KEc-VPZFk-2.gif" alt="" />
                             </div>
-                    }
-
+                        ))
+                    ) : (
+                        <div className="col-span-full text-center">
+                            <p className="text-xl text-gray-600">No blogs found</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

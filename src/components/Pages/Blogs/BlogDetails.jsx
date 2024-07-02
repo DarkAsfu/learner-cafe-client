@@ -33,6 +33,33 @@ const BlogDetails = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        document.title = blog.title;
+
+        const metaTags = [
+            { property: 'og:title', content: blog.title },
+            { property: 'og:description', content: blog.description },
+            { property: 'og:image', content: blog.coverImage },
+            { property: 'og:url', content: `https://learner-cafe.web.app/blogs/${blog._id}` },
+            { property: 'og:type', content: 'article' },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: blog.title },
+            { name: 'twitter:description', content: blog.description },
+            { name: 'twitter:image', content: blog.coverImage },
+            { name: 'twitter:url', content: `https://learner-cafe.web.app/blogs/${blog._id}` },
+        ];
+
+        metaTags.forEach(tag => {
+            let element = document.querySelector(`meta[${tag.property ? 'property' : 'name'}="${tag.property || tag.name}"]`);
+            if (!element) {
+                element = document.createElement('meta');
+                document.head.appendChild(element);
+            }
+            element.setAttribute(tag.property ? 'property' : 'name', tag.property || tag.name);
+            element.setAttribute('content', tag.content);
+        });
+    }, [blog]);
+
     const handleLike = async () => {
         try {
             const response = await fetch(`https://learner-cafe-server.vercel.app/blogs/${blog._id}/like`, {
@@ -60,7 +87,6 @@ const BlogDetails = () => {
     return (
         <>
             <ScrollToTop />
-            {/* <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div> */}
             <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
             <div className="min-h-screen w-11/12 md:w-6/12 mx-auto mb-10 scroll-mx-0">
                 <div className="mt-20 py-[10px] break-words">
