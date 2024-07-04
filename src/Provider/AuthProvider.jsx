@@ -1,5 +1,5 @@
 import  { createContext, useEffect } from 'react';
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useState } from 'react';
 import app from '../Firebase/firebase.config';
 export const AuthContext = createContext(null);
@@ -27,6 +27,9 @@ const AuthProvider = ({children}) => {
     const facebookLogIn = () =>{
         const facebookProvider = new FacebookAuthProvider();
         return signInWithPopup(auth, facebookProvider);
+    }
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
     }
     // observe auth state change
     useEffect( ()=>{
@@ -60,6 +63,7 @@ const AuthProvider = ({children}) => {
         googleLogIn,
         gitHubLoginIn,
         facebookLogIn,
+        resetPassword,
         updateInfo,
         logOut
     }

@@ -50,12 +50,12 @@ const Blogs = () => {
             <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] dark:hidden">
                 <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
             </div>
-            <div className="fixed h-full w-full bg-slate-950 dark:block hidden">
+            <div className="fixed h-full -z-20 w-full bg-slate-950 dark:block hidden">
                 <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
             </div>
             <div className='min-h-screen'>
                 <ScrollToTop />
-                <div className="text-center text-3xl md:text-5xl font-bold mt-32 flex flex-col">
+                <div className="text-center text-3xl md:text-5xl font-bold pt-20 flex flex-col dark:text-white">
                     Explore Topics
                     <form className="mt-7">
                         <input
@@ -64,7 +64,7 @@ const Blogs = () => {
                             name="searchBlog"
                             value={searchText}
                             onChange={handleSearch}
-                            className="input input-bordered input-accent bg-[#F9F9F9] border-white font-sans rounded-full md:py-[30px] placeholder-[#686868] pr-32 md:pr-96"
+                            className="input input-bordered input-accent bg-[#F9F9F9] border-white font-sans rounded-full md:py-[30px] placeholder-[#686868] pr-20 md:pr-96"
                         />
                     </form>
                 </div>

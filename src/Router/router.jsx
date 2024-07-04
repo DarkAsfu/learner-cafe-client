@@ -24,6 +24,7 @@ import PrivateRouter from "./PrivateRouter";
 import BlogUpload from "../components/Pages/Blogs/BlogUpload";
 import Blogs from "../components/Pages/Blogs/Blogs";
 import BlogDetails from "../components/Pages/Blogs/BlogDetails";
+import ResetPassword from "../components/Pages/ResetPassword/ResetPassword";
 
 const router = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
                 path: '/blogs/:id',
                 element: <BlogDetails/>,
                 loader: ({params}) => fetch(`https://learner-cafe-server.vercel.app/blogs/${params.id}`)
+            },
+            {
+                path: '/resetpassword',
+                element: <ResetPassword/>
             },
             {
                 path: '*',

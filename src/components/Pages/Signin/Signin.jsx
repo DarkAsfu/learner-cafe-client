@@ -32,7 +32,6 @@ const Signin = () => {
             setSuccess('')
         })
     }
-
     return (
         <>
         <ScrollToTop/>
@@ -69,6 +68,9 @@ const Signin = () => {
                                 className="input input-bordered" />
                             <label className="label">
                                 <span className="">Are you new user? Please <Link to="/signup" className="text-[#D9042B]">Sign Up</Link></span>
+                            </label>
+                            <label className="label">
+                                <Link to='/resetpassword' className="underline">Forget password?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">
