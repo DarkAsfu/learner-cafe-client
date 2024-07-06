@@ -18,3 +18,61 @@
   color: white;
   background: #002E3C;
 }
+.toc {
+  position: sticky;
+  top: 100px;
+  max-width: 300px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+.toc ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.toc li {
+  margin: 10px 0;
+}
+
+.toc li.active a {
+  color: #D9042B;
+  font-weight: bold;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #686868;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.toc button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .toc {
+      position: relative;
+      top: auto;
+      max-width: 100%;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+  }
+
+  .toc ul {
+      padding-left: 0;
+  }
+
+  .toc button {
+      display: inline-block;
+  }
+}

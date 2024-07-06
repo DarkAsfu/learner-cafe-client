@@ -39,13 +39,13 @@ const BlogDetails = () => {
         const metaTags = [
             { property: 'og:title', content: blog.title },
             { property: 'og:description', content: blog.description },
-            { property: 'og:image', content: blog.coverImage },
+            { property: 'og:coverImage', content: blog.coverImage },
             { property: 'og:url', content: `https://learner-cafe.web.app/blogs/${blog._id}` },
             { property: 'og:type', content: 'article' },
             { name: 'twitter:card', content: 'summary_large_image' },
             { name: 'twitter:title', content: blog.title },
             { name: 'twitter:description', content: blog.description },
-            { name: 'twitter:image', content: blog.coverImage },
+            { name: 'twitter:coverImage', content: blog.coverImage },
             { name: 'twitter:url', content: `https://learner-cafe.web.app/blogs/${blog._id}` },
         ];
 

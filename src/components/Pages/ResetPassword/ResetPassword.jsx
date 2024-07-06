@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 
 const ResetPassword = () => {
     const { resetPassword } = useContext(AuthContext);
@@ -20,7 +21,8 @@ const ResetPassword = () => {
             });
     };
     return (
-        <>
+        <>  
+            <ScrollToTop/>
             <div className="fixed top-0 z-[-2] h-screen w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
             <div className="min-h-screen w-10/12 md:w-6/12 lg:w-4/12 mx-auto pt-48">
                 <h1 className="text-2xl md:text-4xl font-bold text-[#373737]">Enter you email</h1>
